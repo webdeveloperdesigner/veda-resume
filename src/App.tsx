@@ -77,7 +77,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0C0C0C] text-[#D7E2EA] font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen flex flex-col bg-[#0C0C0C] text-[#D7E2EA] font-sans selection:bg-emerald-500/30">
       <Navbar 
         currentView={currentView} 
         onNavigate={setCurrentView} 
@@ -99,10 +99,21 @@ function App() {
             animate="show"
             className="text-center space-y-6 mb-16"
           >
-            <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-2">
-              <Sparkles className="w-4 h-4 text-emerald-400" />
-              <span className="text-xs font-bold text-emerald-400 tracking-widest uppercase">Powered by Gemini</span>
-            </motion.div>
+            <div className="flex items-center justify-center space-x-3 mb-2">
+              <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+                <Sparkles className="w-4 h-4 text-emerald-400" />
+                <span className="text-xs font-bold text-emerald-400 tracking-widest uppercase">Powered by Gemini</span>
+              </motion.div>
+              <motion.a 
+                href="https://bodhai.pages.dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                variants={itemVariants} 
+                className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
+              >
+                <span className="text-xs font-bold text-blue-400 tracking-widest uppercase">Co-powered by BodhAI</span>
+              </motion.a>
+            </div>
             <motion.h1 
               variants={itemVariants}
               className="text-4xl md:text-6xl font-black tracking-tight hero-heading drop-shadow-lg"
@@ -151,6 +162,13 @@ function App() {
       ) : (
         <VersionsView />
       )}
+
+      {/* Global Footer */}
+      <footer className="w-full text-center py-8 mt-auto border-t border-white/5 bg-black/20">
+        <p className="text-sm text-gray-500">
+          © {new Date().getFullYear()} VEDA Resume. <a href="https://bodhai.pages.dev" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors">Co-powered by BodhAI</a>.
+        </p>
+      </footer>
     </div>
   );
 }

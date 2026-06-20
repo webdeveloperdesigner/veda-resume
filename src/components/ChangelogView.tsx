@@ -4,6 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.2',
+    date: 'June 21, 2026',
+    title: 'Mobile Navigation & Feedback Integration',
+    description: 'We have made VEDA fully accessible on the go with a brand new responsive mobile navigation menu, and integrated direct feedback channels so you can help shape our roadmap.',
+    changes: [
+      { type: 'feature', text: 'Implemented a responsive dropdown Hamburger menu for seamless mobile and tablet navigation.' },
+      { type: 'feature', text: 'Added a direct Feedback survey link to the Navbar to gather feature requests and bug reports.' },
+      { type: 'ui', text: 'Added a "Star on GitHub" CTA button to the Navbar.' }
+    ]
+  },
+  {
     version: 'v1.2.1',
     date: 'June 21, 2026',
     title: 'Navbar TypeScript Fixes',
