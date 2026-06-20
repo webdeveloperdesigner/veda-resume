@@ -7,7 +7,7 @@ import { Navbar } from './components/Navbar';
 import { WhatsNewPopup } from './components/WhatsNewPopup';
 import { ChangelogView } from './components/ChangelogView';
 import { AppState, ReviewResult } from './lib/types';
-import { AlertCircle } from 'lucide-react';
+import { AlertCircle, Sparkles } from 'lucide-react';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -98,6 +98,10 @@ function App() {
             animate="show"
             className="text-center space-y-6 mb-16"
           >
+            <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-2">
+              <Sparkles className="w-4 h-4 text-emerald-400" />
+              <span className="text-xs font-bold text-emerald-400 tracking-widest uppercase">Powered by Gemini</span>
+            </motion.div>
             <motion.h1 
               variants={itemVariants}
               className="text-4xl md:text-6xl font-black tracking-tight hero-heading drop-shadow-lg"
