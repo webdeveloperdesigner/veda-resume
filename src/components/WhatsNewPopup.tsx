@@ -25,11 +25,11 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="w-full max-w-md bg-[#121212] border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] pointer-events-auto relative overflow-hidden flex flex-col max-h-[90vh]"
+              className="w-full max-w-md bg-[#121212] border border-emerald-500/30 rounded-3xl shadow-[0_0_50px_rgba(16,185,129,0.15)] pointer-events-auto relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
               
-              <div className="p-6 sm:p-8 flex-grow overflow-y-auto relative z-10">
+              <div className="p-6 sm:p-8 relative z-10">
                 <div className="flex justify-between items-start mb-10">
                   <div className="flex items-center space-x-3">
                     <div className="p-2.5 bg-emerald-500/10 rounded-xl border border-emerald-500/20">
@@ -45,7 +45,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                   </button>
                 </div>
 
-                <div className="space-y-8">
+                <div className="space-y-4">
                   <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-white/5 transition-colors">
                     <div className="bg-amber-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
                       <Zap className="w-4 h-4 text-amber-400" />
@@ -78,7 +78,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                 </div>
               </div>
 
-              <div className="p-6 border-t border-white/5 bg-[#0A0A0A] relative z-10">
+              <div className="px-6 pb-6 sm:px-8 sm:pb-8 pt-2 relative z-10">
                 <button 
                   onClick={onClose}
                   className="w-full py-3.5 mb-3 rounded-xl font-bold text-[#121212] bg-white hover:bg-gray-200 transition-colors shadow-lg"
