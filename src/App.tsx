@@ -49,10 +49,10 @@ function App() {
           try {
             const errorData = JSON.parse(responseText);
             if (errorData.error) errorMessage = errorData.error;
-          } catch (e) {
+          } catch {
             if (responseText) errorMessage = responseText;
           }
-        } catch (e) {
+        } catch {
           // Fallback
         }
         throw new Error(errorMessage);
@@ -61,9 +61,10 @@ function App() {
       const data = await response.json();
       setResult(data);
       setAppState('result');
-    } catch (err: any) {
-      console.error(err);
-      setErrorMsg(err.message || 'An unexpected error occurred.');
+    } catch (err: unknown) {
+      const error = err as Error;
+      console.error(error);
+      setErrorMsg(error.message || 'An unexpected error occurred.');
       setAppState('error');
     }
   };

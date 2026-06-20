@@ -133,14 +133,15 @@ ${truncatedText}`;
     let resultJson;
     try {
       resultJson = JSON.parse(jsonString);
-    } catch (e) {
+    } catch {
       console.error("Failed to parse JSON:", jsonString);
       throw new Error("Failed to parse the structured response from Gemini.");
     }
 
     return response.status(200).json(resultJson);
-  } catch (error: any) {
-    console.error('Server error:', error);
-    return response.status(500).json({ error: error.message || 'Internal server error' });
+  } catch (error: unknown) {
+    const err = error as Error;
+    console.error('Server error:', err);
+    return response.status(500).json({ error: err.message || 'Internal server error' });
   }
 }

@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Bell, Home, History } from 'lucide-react';
+import { Bell } from 'lucide-react';
 
 interface NavbarProps {
   currentView: 'home' | 'changelog';

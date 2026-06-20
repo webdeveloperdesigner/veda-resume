@@ -35,7 +35,10 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     <div className="p-2 bg-emerald-500/10 rounded-xl">
                       <Sparkles className="w-6 h-6 text-emerald-400" />
                     </div>
-                    <h2 className="text-2xl font-bold text-white">What's New</h2>
+                    <div>
+                      <h2 className="text-2xl font-bold text-white leading-tight">What's New</h2>
+                      <p className="text-emerald-400 text-sm font-semibold tracking-wider uppercase">v1.1.1 Release</p>
+                    </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-400 hover:text-white transition-colors bg-white/5 rounded-full">
                     <X className="w-5 h-5" />

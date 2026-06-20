@@ -1,8 +1,19 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const releases = [
+  {
+    version: 'v1.1.1',
+    date: 'June 21, 2026',
+    title: 'Codebase Stability & Type Safety',
+    description: 'We have hardened the VEDA platform by strictly typing error handling and improving edge-case catches during PDF extraction and API analysis.',
+    changes: [
+      { type: 'bugfix', text: 'Migrated API route catch blocks to strict unknown typing for better error safety.' },
+      { type: 'bugfix', text: 'Hardened pdfExtract.ts against untyped exception edge-cases.' },
+      { type: 'bugfix', text: 'Cleaned up unused imports to guarantee zero-warning builds.' }
+    ]
+  },
   {
     version: 'v1.1.0',
     date: 'June 20, 2026',

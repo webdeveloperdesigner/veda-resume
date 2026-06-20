@@ -53,8 +53,9 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
     try {
       const text = await extractTextFromPDF(file);
       onProcessText(text, targetRole);
-    } catch (err: any) {
-      if (err.message === 'PDF_NO_TEXT') {
+    } catch (err: unknown) {
+      const error = err as Error;
+      if (error.message === 'PDF_NO_TEXT') {
         setError('Could not extract text. Make sure the PDF is not an image/scan.');
       } else {
         setError('Failed to read PDF. Please try pasting text instead.');
@@ -64,12 +65,12 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
     }
   };
 
-  const handleDrop = useCallback((e: React.DragEvent) => {
+  const handleDrop = (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragging(false);
     const file = e.dataTransfer.files[0];
     if (file) processFile(file);
-  }, [onProcessText]);
+  };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
