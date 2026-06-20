@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { CheckCircle2, AlertTriangle, Briefcase, TrendingUp, Target } from 'lucide-react';
 import { ReviewResult } from '../lib/types';
@@ -50,6 +51,22 @@ const getScoreLabel = (score: number) => {
 
 export function ResultView({ data, onReset }: ResultViewProps) {
   const scoreMeta = getScoreLabel(data.overallScore);
+  const [displayScore, setDisplayScore] = useState(0);
+
+  useEffect(() => {
+    let current = 0;
+    const increment = data.overallScore / 40;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= data.overallScore) {
+        setDisplayScore(data.overallScore);
+        clearInterval(timer);
+      } else {
+        setDisplayScore(Math.floor(current));
+      }
+    }, 25);
+    return () => clearInterval(timer);
+  }, [data.overallScore]);
 
   return (
     <motion.div
@@ -61,7 +78,7 @@ export function ResultView({ data, onReset }: ResultViewProps) {
       <motion.div variants={itemVariants} className="text-center space-y-6">
         <h2 className="text-lg font-bold tracking-[0.2em] uppercase text-gray-500">Employability Score</h2>
         <div className="text-[clamp(6rem,22vw,18rem)] font-black leading-none text-score-gradient drop-shadow-[0_0_40px_rgba(16,185,129,0.2)]">
-          {data.overallScore}
+          {displayScore}
         </div>
         <p className={`text-2xl font-semibold tracking-wide uppercase ${scoreMeta.color} ${scoreMeta.glow}`}>
           {scoreMeta.label}
@@ -172,9 +189,18 @@ export function ResultView({ data, onReset }: ResultViewProps) {
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">Suggested</h4>
-                  <p className="text-gray-100 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl leading-relaxed shadow-[0_0_20px_rgba(16,185,129,0.05)]">
-                    {rw.suggested}
-                  </p>
+                  <div className="relative group">
+                    <p className="text-gray-100 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl leading-relaxed shadow-[0_0_20px_rgba(16,185,129,0.05)]">
+                      {rw.suggested}
+                    </p>
+                    <button 
+                      onClick={() => navigator.clipboard.writeText(rw.suggested)}
+                      className="absolute top-2 right-2 p-2 bg-emerald-500/20 rounded-lg text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-emerald-500/40"
+                      title="Copy to clipboard"
+                    >
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                  </div>
                 </div>
               </div>
               <div className="mt-5 pt-5 border-t border-white/10">

@@ -3,6 +3,9 @@ import { motion, Variants } from 'framer-motion';
 import { UploadZone } from './components/UploadZone';
 import { LoadingState } from './components/LoadingState';
 import { ResultView } from './components/ResultView';
+import { Navbar } from './components/Navbar';
+import { WhatsNewPopup } from './components/WhatsNewPopup';
+import { ChangelogView } from './components/ChangelogView';
 import { AppState, ReviewResult } from './lib/types';
 import { AlertCircle } from 'lucide-react';
 
@@ -25,8 +28,10 @@ function App() {
   const [appState, setAppState] = useState<AppState>('idle');
   const [result, setResult] = useState<ReviewResult | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [currentView, setCurrentView] = useState<'home' | 'changelog'>('home');
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const handleProcessText = async (text: string) => {
+  const handleProcessText = async (text: string, targetRole?: string) => {
     setAppState('loading');
     setErrorMsg(null);
     
@@ -34,7 +39,7 @@ function App() {
       const response = await fetch('/api/review', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ resumeText: text })
+        body: JSON.stringify({ resumeText: text, targetRole })
       });
 
       if (!response.ok) {
@@ -71,20 +76,20 @@ function App() {
 
   return (
     <div className="min-h-screen bg-[#0C0C0C] text-[#D7E2EA] font-sans selection:bg-emerald-500/30">
-      <header className="border-b border-white/5 bg-[#0C0C0C]/60 backdrop-blur-xl sticky top-0 z-50 shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-600 to-emerald-400 flex items-center justify-center font-black text-white shadow-[0_0_15px_rgba(16,185,129,0.3)]">V</div>
-            <span className="text-xl font-bold tracking-widest uppercase">VEDA</span>
-          </div>
-          <nav className="hidden md:flex space-x-6 text-sm font-medium tracking-wide text-gray-400 uppercase">
-            <a href="#" className="hover:text-emerald-400 transition-colors">How it works</a>
-            <a href="#" className="hover:text-emerald-400 transition-colors">Methodology</a>
-          </nav>
-        </div>
-      </header>
+      <Navbar 
+        currentView={currentView} 
+        onNavigate={setCurrentView} 
+        onOpenPopup={() => setIsPopupOpen(true)} 
+      />
 
-      <main className="max-w-6xl mx-auto px-6 py-12 md:py-20">
+      <WhatsNewPopup 
+        isOpen={isPopupOpen} 
+        onClose={() => setIsPopupOpen(false)} 
+        onNavigateToChangelog={() => setCurrentView('changelog')} 
+      />
+
+      {currentView === 'home' ? (
+        <main className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         {appState === 'idle' && (
           <motion.div 
             variants={containerVariants}
@@ -134,7 +139,10 @@ function App() {
             </button>
           </motion.div>
         )}
-      </main>
+        </main>
+      ) : (
+        <ChangelogView />
+      )}
     </div>
   );
 }

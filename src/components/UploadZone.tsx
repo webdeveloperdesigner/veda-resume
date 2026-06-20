@@ -4,7 +4,7 @@ import { Upload, AlertCircle } from 'lucide-react';
 import { extractTextFromPDF } from '../lib/pdfExtract';
 
 interface UploadZoneProps {
-  onProcessText: (text: string) => void;
+  onProcessText: (text: string, targetRole?: string) => void;
 }
 
 const containerVariants: Variants = {
@@ -29,6 +29,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
   const [textInput, setTextInput] = useState('');
   const [error, setError] = useState<string | null>(null);
   const [isProcessingFile, setIsProcessingFile] = useState(false);
+  const [targetRole, setTargetRole] = useState('');
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -51,7 +52,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
     
     try {
       const text = await extractTextFromPDF(file);
-      onProcessText(text);
+      onProcessText(text, targetRole);
     } catch (err: any) {
       if (err.message === 'PDF_NO_TEXT') {
         setError('Could not extract text. Make sure the PDF is not an image/scan.');
@@ -81,7 +82,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
       return;
     }
     setError(null);
-    onProcessText(textInput);
+    onProcessText(textInput, targetRole);
   };
 
   return (
@@ -110,12 +111,23 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
         </button>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+      <motion.div variants={itemVariants} className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10">
+          <div className="mb-6">
+            <label className="block text-sm font-medium text-gray-400 mb-2">Target Role (Optional)</label>
+            <input 
+              type="text" 
+              value={targetRole}
+              onChange={(e) => setTargetRole(e.target.value)}
+              placeholder="e.g. Senior Frontend Developer"
+              className="w-full bg-black/40 border border-white/10 rounded-xl p-3 text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
+            />
+          </div>
+
           {mode === 'pdf' ? (
             <div
               onDragOver={handleDragOver}
