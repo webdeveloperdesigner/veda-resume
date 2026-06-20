@@ -4,6 +4,29 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.0',
+    date: 'June 21, 2026',
+    title: 'Major UI/UX Overhaul & Multi-View Navigation',
+    description: 'We have transformed VEDA from a single-page application into a robust multi-view platform. This release introduces a floating navigation system, a dedicated version index, and a beautiful new Updates modal.',
+    changes: [
+      { type: 'feature', text: 'Implemented a multi-view routing system seamlessly switching between Home, Changelog, and Versions.' },
+      { type: 'ui', text: 'Redesigned the Navbar into a modern, pill-shaped floating island.' },
+      { type: 'ui', text: 'Transformed the Updates popup into a highly premium animated modal with hover effects.' },
+      { type: 'feature', text: 'Introduced a brand new, dedicated Versions Index page for high-level release tracking.' }
+    ]
+  },
+  {
+    version: 'v1.1.2',
+    date: 'June 21, 2026',
+    title: 'Brand Identity & SEO Optimization',
+    description: 'We have updated the VEDA brand identity with a new favicon, optimized SEO metadata for better discoverability, and added a shiny new "Powered by Gemini" badge.',
+    changes: [
+      { type: 'ui', text: 'Added "Powered by Gemini" branding to the home page.' },
+      { type: 'ui', text: 'Updated the site favicon to the official VEDA logo.' },
+      { type: 'ui', text: 'Optimized HTML meta tags and Open Graph data for seamless social sharing.' }
+    ]
+  },
+  {
     version: 'v1.1.1',
     date: 'June 21, 2026',
     title: 'Codebase Stability & Type Safety',

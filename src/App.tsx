@@ -6,6 +6,7 @@ import { ResultView } from './components/ResultView';
 import { Navbar } from './components/Navbar';
 import { WhatsNewPopup } from './components/WhatsNewPopup';
 import { ChangelogView } from './components/ChangelogView';
+import { VersionsView } from './components/VersionsView';
 import { AppState, ReviewResult } from './lib/types';
 import { AlertCircle, Sparkles } from 'lucide-react';
 
@@ -28,7 +29,7 @@ function App() {
   const [appState, setAppState] = useState<AppState>('idle');
   const [result, setResult] = useState<ReviewResult | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [currentView, setCurrentView] = useState<'home' | 'changelog'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'changelog' | 'versions'>('home');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleProcessText = async (text: string, targetRole?: string) => {
@@ -145,8 +146,10 @@ function App() {
           </motion.div>
         )}
         </main>
-      ) : (
+      ) : currentView === 'changelog' ? (
         <ChangelogView />
+      ) : (
+        <VersionsView />
       )}
     </div>
   );

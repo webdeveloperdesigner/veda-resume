@@ -46,6 +46,15 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
           </button>
 
           <button 
+            onClick={() => onNavigate('versions')}
+            className={`text-sm font-semibold transition-colors ${
+              currentView === 'versions' ? 'text-black' : 'text-gray-500 hover:text-black'
+            }`}
+          >
+            Versions
+          </button>
+
+          <button 
             onClick={onOpenPopup}
             className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-black transition-colors"
           >

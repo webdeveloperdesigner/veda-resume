@@ -25,69 +25,75 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
               animate={{ scale: 1, opacity: 1, y: 0 }}
               exit={{ scale: 0.95, opacity: 0, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="w-full max-w-md bg-[#121212] border border-emerald-500/30 rounded-3xl shadow-[0_0_50px_rgba(16,185,129,0.15)] overflow-hidden pointer-events-auto relative"
+              className="w-full max-w-md bg-[#121212] border border-white/10 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.5)] pointer-events-auto relative overflow-hidden flex flex-col max-h-[90vh]"
             >
-              <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/10 rounded-full blur-[80px] pointer-events-none" />
+              <div className="absolute top-0 right-0 w-96 h-96 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
               
-              <div className="p-6 sm:p-8">
-                <div className="flex justify-between items-start mb-6">
+              <div className="p-6 sm:p-8 flex-grow overflow-y-auto relative z-10">
+                <div className="flex justify-between items-start mb-10">
                   <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-emerald-500/10 rounded-xl">
-                      <Sparkles className="w-6 h-6 text-emerald-400" />
+                    <div className="p-2.5 bg-emerald-500/10 rounded-xl border border-emerald-500/20">
+                      <Sparkles className="w-5 h-5 text-emerald-400" />
                     </div>
                     <div>
-                      <h2 className="text-2xl font-bold text-white leading-tight">What's New</h2>
-                      <p className="text-emerald-400 text-sm font-semibold tracking-wider uppercase">v1.1.1 Release</p>
+                      <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
+                      <p className="text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.0 Release</p>
                     </div>
                   </div>
-                  <button onClick={onClose} className="p-2 text-gray-400 hover:text-white transition-colors bg-white/5 rounded-full">
+                  <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
                     <X className="w-5 h-5" />
                   </button>
                 </div>
 
-                <div className="space-y-6">
-                  <div className="flex items-start space-x-4">
-                    <Zap className="w-5 h-5 text-amber-400 mt-1 flex-shrink-0" />
+                <div className="space-y-8">
+                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-white/5 transition-colors">
+                    <div className="bg-amber-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
+                      <Zap className="w-4 h-4 text-amber-400" />
+                    </div>
                     <div>
-                      <h3 className="font-semibold text-gray-200">Target Role Analysis</h3>
-                      <p className="text-sm text-gray-400 mt-1">Specify your target role before uploading to get highly contextualized ATS feedback.</p>
+                      <h3 className="font-bold text-gray-200">Target Role Analysis</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Specify your target role before uploading to get highly contextualized ATS feedback.</p>
                     </div>
                   </div>
                   
-                  <div className="flex items-start space-x-4">
-                    <ShieldCheck className="w-5 h-5 text-blue-400 mt-1 flex-shrink-0" />
+                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-white/5 transition-colors">
+                    <div className="bg-blue-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
+                      <ShieldCheck className="w-4 h-4 text-blue-400" />
+                    </div>
                     <div>
-                      <h3 className="font-semibold text-gray-200">Robust Parsing</h3>
-                      <p className="text-sm text-gray-400 mt-1">We've upgraded our engine to gracefully handle massive PDFs without timing out.</p>
+                      <h3 className="font-bold text-gray-200">Robust Parsing</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">We've upgraded our engine to gracefully handle massive PDFs without timing out.</p>
                     </div>
                   </div>
 
-                  <div className="flex items-start space-x-4">
-                    <Sparkles className="w-5 h-5 text-purple-400 mt-1 flex-shrink-0" />
+                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-white/5 transition-colors">
+                    <div className="bg-purple-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
+                      <Sparkles className="w-4 h-4 text-purple-400" />
+                    </div>
                     <div>
-                      <h3 className="font-semibold text-gray-200">Fix It For Me</h3>
-                      <p className="text-sm text-gray-400 mt-1">Hover over any Smart Rewrite suggestion to instantly copy it to your clipboard.</p>
+                      <h3 className="font-bold text-gray-200">Fix It For Me</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Hover over any Smart Rewrite suggestion to instantly copy it to your clipboard.</p>
                     </div>
                   </div>
                 </div>
+              </div>
 
-                <div className="mt-8 pt-6 border-t border-white/10 flex flex-col space-y-3">
-                  <button 
-                    onClick={onClose}
-                    className="w-full py-3 rounded-full font-bold text-[#121212] bg-emerald-400 hover:bg-emerald-300 transition-colors shadow-[0_0_20px_rgba(52,211,153,0.3)]"
-                  >
-                    Awesome, let's go!
-                  </button>
-                  <button 
-                    onClick={() => {
-                      onNavigateToChangelog();
-                      onClose();
-                    }}
-                    className="w-full py-3 rounded-full font-bold text-gray-400 hover:text-white transition-colors text-sm"
-                  >
-                    Read full changelog
-                  </button>
-                </div>
+              <div className="p-6 border-t border-white/5 bg-[#0A0A0A] relative z-10">
+                <button 
+                  onClick={onClose}
+                  className="w-full py-3.5 mb-3 rounded-xl font-bold text-[#121212] bg-white hover:bg-gray-200 transition-colors shadow-lg"
+                >
+                  Mark as Read
+                </button>
+                <button 
+                  onClick={() => {
+                    onNavigateToChangelog();
+                    onClose();
+                  }}
+                  className="w-full py-3.5 rounded-xl font-bold text-gray-400 hover:text-white hover:bg-white/5 transition-colors text-sm border border-transparent"
+                >
+                  View Full Changelog
+                </button>
               </div>
             </motion.div>
           </div>
