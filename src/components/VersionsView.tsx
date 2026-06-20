@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.2.1', date: 'June 21, 2026', title: 'Navbar TypeScript Fixes' },
   { version: 'v1.2.0', date: 'June 21, 2026', title: 'Major UI/UX Overhaul & Multi-View Navigation' },
   { version: 'v1.1.2', date: 'June 21, 2026', title: 'Brand Identity & SEO Optimization' },
   { version: 'v1.1.1', date: 'June 21, 2026', title: 'Codebase Stability & Type Safety' },

@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Bell } from 'lucide-react';
 
 interface NavbarProps {
-  currentView: 'home' | 'changelog';
-  onNavigate: (view: 'home' | 'changelog') => void;
+  currentView: 'home' | 'changelog' | 'versions';
+  onNavigate: (view: 'home' | 'changelog' | 'versions') => void;
   onOpenPopup: () => void;
 }
 

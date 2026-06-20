@@ -4,6 +4,15 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.1',
+    date: 'June 21, 2026',
+    title: 'Navbar TypeScript Fixes',
+    description: 'A quick hotfix to ensure proper TypeScript compilation after the introduction of the Versions view.',
+    changes: [
+      { type: 'bugfix', text: 'Updated NavbarProps interface to accept the new "versions" view state.' }
+    ]
+  },
+  {
     version: 'v1.2.0',
     date: 'June 21, 2026',
     title: 'Major UI/UX Overhaul & Multi-View Navigation',
