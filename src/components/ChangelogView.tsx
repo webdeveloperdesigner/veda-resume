@@ -4,6 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.5',
+    date: 'June 23, 2026',
+    title: 'Two-Step Upload Confirmation',
+    description: 'We have overhauled the Upload Zone to require an explicit confirmation step before AI analysis begins. This prevents accidental submissions and ensures you have uploaded the correct document.',
+    changes: [
+      { type: 'feature', text: 'Implemented a two-step confirmation flow for resume uploads and text pasting.' },
+      { type: 'ui', text: 'Added a dedicated "Review My Resume" premium gradient button.' },
+      { type: 'ui', text: 'Redesigned the Upload Zone active state to display the file name and character count securely.' }
+    ]
+  },
+  {
     version: 'v1.2.4',
     date: 'June 23, 2026',
     title: 'System Theme Toggle & UI Refinements',

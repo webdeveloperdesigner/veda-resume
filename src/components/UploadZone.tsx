@@ -30,6 +30,8 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
   const [error, setError] = useState<string | null>(null);
   const [isProcessingFile, setIsProcessingFile] = useState(false);
   const [targetRole, setTargetRole] = useState('');
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [extractedPdfText, setExtractedPdfText] = useState<string | null>(null);
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -52,7 +54,8 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
     
     try {
       const text = await extractTextFromPDF(file);
-      onProcessText(text, targetRole);
+      setSelectedFile(file);
+      setExtractedPdfText(text);
     } catch (err: unknown) {
       const error = err as Error;
       if (error.message === 'PDF_NO_TEXT') {
@@ -60,6 +63,8 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
       } else {
         setError('Failed to read PDF. Please try pasting text instead.');
       }
+      setSelectedFile(null);
+      setExtractedPdfText(null);
     } finally {
       setIsProcessingFile(false);
     }
@@ -77,13 +82,22 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
     if (file) processFile(file);
   };
 
-  const handleSubmitText = () => {
-    if (textInput.length < 100) {
-      setError('Text is too short. Please provide at least 100 characters.');
-      return;
+  const handleSubmit = () => {
+    if (mode === 'pdf') {
+      if (!extractedPdfText) {
+        setError('Please upload a PDF resume first.');
+        return;
+      }
+      setError(null);
+      onProcessText(extractedPdfText, targetRole);
+    } else {
+      if (textInput.length < 100) {
+        setError('Text is too short. Please provide at least 100 characters.');
+        return;
+      }
+      setError(null);
+      onProcessText(textInput, targetRole);
     }
-    setError(null);
-    onProcessText(textInput, targetRole);
   };
 
   return (
@@ -112,85 +126,121 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
         </button>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="bg-white dark:bg-white/5 backdrop-blur-2xl border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
+      <motion.div variants={itemVariants} className="flex flex-col items-center">
+        <div className="w-full bg-white dark:bg-[#121212] backdrop-blur-2xl border border-gray-200 dark:border-white/10 rounded-[2rem] p-6 sm:p-10 shadow-2xl relative overflow-hidden mb-8">
+          {/* Subtle background glow */}
+          <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
+          <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
-        <div className="relative z-10">
-          <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Target Role (Optional)</label>
-            <input 
-              type="text" 
-              value={targetRole}
-              onChange={(e) => setTargetRole(e.target.value)}
-              placeholder="e.g. Senior Frontend Developer"
-              className="w-full bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-3 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
-            />
-          </div>
-
-          {mode === 'pdf' ? (
-            <div
-              onDragOver={handleDragOver}
-              onDragLeave={handleDragLeave}
-              onDrop={handleDrop}
-              className={`border-2 border-dashed rounded-3xl p-16 text-center transition-all duration-300 ${
-                isDragging
-                  ? 'border-emerald-500 bg-emerald-500/5 shadow-[0_0_30px_rgba(16,185,129,0.15)] scale-[1.02]'
-                  : 'border-gray-500/30 hover:border-gray-400 hover:bg-white/5'
-              }`}
-            >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full border border-gray-300 dark:border-gray-500/30 flex items-center justify-center bg-gray-50 dark:bg-white/5">
-                <Upload className={`w-8 h-8 transition-colors ${isDragging ? 'text-emerald-500 dark:text-emerald-400' : 'text-gray-400'}`} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Upload your Resume</h3>
-              <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-sm mx-auto text-sm">Drag & drop your PDF resume here, or click to browse. Max size 5MB.</p>
-              
-              <label className="cursor-pointer inline-flex items-center justify-center px-8 py-3 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-all active:scale-[0.98] font-medium text-sm text-gray-700 dark:text-white border border-gray-200 dark:border-white/5 backdrop-blur-md">
-                <input 
-                  type="file" 
-                  className="hidden" 
-                  accept=".pdf" 
-                  onChange={handleFileChange} 
-                  disabled={isProcessingFile}
-                />
-                {isProcessingFile ? 'Reading PDF...' : 'Browse Files'}
-              </label>
-            </div>
-          ) : (
-            <div className="space-y-4">
-              <textarea
-                className="w-full h-64 bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-4 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all resize-none shadow-inner"
-                placeholder="Paste your resume text here..."
-                value={textInput}
-                onChange={(e) => setTextInput(e.target.value)}
+          <div className="relative z-10">
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Target Role (Optional)</label>
+              <input 
+                type="text" 
+                value={targetRole}
+                onChange={(e) => setTargetRole(e.target.value)}
+                placeholder="e.g. Senior Frontend Developer"
+                className="w-full bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-3 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
               />
-              <div className="flex justify-between items-center">
-                <span className="text-sm text-gray-500 font-medium">
-                  {textInput.length} characters
-                </span>
-                <button
-                  onClick={handleSubmitText}
-                  className="px-8 py-3 rounded-full font-bold text-white shadow-lg transform hover:scale-[1.02] active:scale-[0.98] transition-all score-gradient relative overflow-hidden group"
-                >
-                  <span className="relative z-10">Analyze Resume</span>
-                  <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
-                </button>
-              </div>
             </div>
-          )}
 
-          {error && (
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="mt-6 p-4 rounded-lg bg-red-500/10 border border-red-500/30 flex items-start space-x-3 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.1)]"
-            >
-              <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
-              <p className="text-sm">{error}</p>
-            </motion.div>
-          )}
+            {mode === 'pdf' ? (
+              <div
+                onDragOver={handleDragOver}
+                onDragLeave={handleDragLeave}
+                onDrop={handleDrop}
+                className={`border-2 border-dashed rounded-3xl p-16 text-center transition-all duration-300 ${
+                  isDragging
+                    ? 'border-emerald-500 bg-emerald-500/5 shadow-[0_0_30px_rgba(16,185,129,0.15)] scale-[1.02]'
+                    : 'border-gray-500/30 hover:border-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'
+                }`}
+              >
+                {selectedFile && extractedPdfText ? (
+                  <div className="flex flex-col items-center">
+                    <div className="w-16 h-20 border-2 border-gray-400 rounded-lg flex flex-col justify-start items-start p-2 mb-4">
+                      <div className="w-6 h-1 bg-gray-400 mb-1 rounded"></div>
+                      <div className="w-4 h-1 bg-gray-400 mb-1 rounded"></div>
+                      <div className="w-8 h-1 bg-gray-400 rounded"></div>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{selectedFile.name}</h3>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">{extractedPdfText.length.toLocaleString()} characters extracted · click to replace</p>
+                    <label className="cursor-pointer text-emerald-500 hover:text-emerald-400 font-medium text-sm transition-colors">
+                      <input 
+                        type="file" 
+                        className="hidden" 
+                        accept=".pdf" 
+                        onChange={handleFileChange} 
+                        disabled={isProcessingFile}
+                      />
+                      Replace File
+                    </label>
+                  </div>
+                ) : (
+                  <>
+                    <div className="w-16 h-16 mx-auto mb-6 flex items-center justify-center">
+                      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                        <path d="M4 14.899A7 7 0 1 1 15.71 8h1.79a4.5 4.5 0 0 1 2.5 8.242"></path>
+                        <path d="M12 12v9"></path>
+                        <path d="m8 16 4-4 4 4"></path>
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Drop your resume PDF here, or click to browse</h3>
+                    <p className="text-gray-500 dark:text-gray-400 mb-6 text-sm font-medium">PDF only · max 10 MB · text is never stored</p>
+                    
+                    <label className="cursor-pointer absolute inset-0 w-full h-full opacity-0">
+                      <input 
+                        type="file" 
+                        className="hidden" 
+                        accept=".pdf" 
+                        onChange={handleFileChange} 
+                        disabled={isProcessingFile}
+                      />
+                    </label>
+                    {isProcessingFile && <p className="text-emerald-500 font-medium mt-4">Reading PDF...</p>}
+                  </>
+                )}
+              </div>
+            ) : (
+              <div className="space-y-4">
+                <textarea
+                  className="w-full h-64 bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-4 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all resize-none shadow-inner"
+                  placeholder="Paste your resume text here..."
+                  value={textInput}
+                  onChange={(e) => setTextInput(e.target.value)}
+                />
+                <div className="flex justify-between items-center">
+                  <span className="text-sm text-gray-500 font-medium">
+                    {textInput.length.toLocaleString()} characters
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {error && (
+              <motion.div 
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mt-6 p-4 rounded-lg bg-red-500/10 border border-red-500/30 flex items-start space-x-3 text-red-400 shadow-[0_0_15px_rgba(239,68,68,0.1)]"
+              >
+                <AlertCircle className="w-5 h-5 flex-shrink-0 mt-0.5" />
+                <p className="text-sm">{error}</p>
+              </motion.div>
+            )}
+          </div>
         </div>
+
+        <button
+          onClick={handleSubmit}
+          className="px-12 py-4 rounded-full font-bold text-white shadow-lg transform hover:scale-[1.02] active:scale-[0.98] transition-all score-gradient relative overflow-hidden group text-lg tracking-wide uppercase"
+        >
+          <span className="relative z-10 flex items-center space-x-2">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
+            </svg>
+            <span>Review My Resume</span>
+          </span>
+          <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
+        </button>
       </motion.div>
     </motion.div>
   );

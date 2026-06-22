@@ -651,6 +651,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.2.2** | 2026-06-21 | Mobile Navigation & Feedback Integration. |
 | **v1.2.3** | 2026-06-23 | Cinematic Dark Mode & System Theme Integration. |
 | **v1.2.4** | 2026-06-23 | System Theme Toggle & UI Refinements. |
+| **v1.2.5** | 2026-06-23 | Two-Step Upload Confirmation Flow. |
 
 ---
 
