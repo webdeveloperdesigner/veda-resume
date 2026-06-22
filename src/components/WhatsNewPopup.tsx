@@ -37,7 +37,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
-                      <p className="text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.0 Release</p>
+                      <p className="text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.3 Release</p>
                     </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
@@ -51,8 +51,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Zap className="w-4 h-4 text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Target Role Analysis</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Specify your target role before uploading to get highly contextualized ATS feedback.</p>
+                      <h3 className="font-bold text-gray-200">Cinematic Dark Mode</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Experience VEDA in a stunning pure-black theme with dynamic grid overlays and background glows.</p>
                     </div>
                   </div>
                   
@@ -61,8 +61,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <ShieldCheck className="w-4 h-4 text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Robust Parsing</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">We've upgraded our engine to gracefully handle massive PDFs without timing out.</p>
+                      <h3 className="font-bold text-gray-200">System Theme Detection</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">VEDA now automatically adapts to your operating system's light or dark mode preferences.</p>
                     </div>
                   </div>
 
@@ -71,8 +71,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Sparkles className="w-4 h-4 text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Fix It For Me</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Hover over any Smart Rewrite suggestion to instantly copy it to your clipboard.</p>
+                      <h3 className="font-bold text-gray-200">Refined UI Components</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Enjoy a redesigned Upload Zone and an optimized Navbar with integrated feedback channels.</p>
                     </div>
                   </div>
                 </div>

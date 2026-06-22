@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text y='75' x='50' font-size='65' font-family='sans-serif' font-weight='900' fill='%2310B981' text-anchor='middle'>V</text></svg>" />
@@ -8,7 +8,15 @@
     <meta name="description" content="AI-powered resume analysis for smarter careers. Drop your resume to uncover skill gaps, industry fit, and actionable improvements, powered by Gemini 2.5 Flash." />
     <meta property="og:title" content="VEDA Resume | Virtual Employability & Document Analyzer" />
     <meta property="og:description" content="AI-powered resume analysis for smarter careers." />
-    <meta name="theme-color" content="#0C0C0C" />
+    <meta name="theme-color" content="#000000" />
+    <script>
+      // Support system theme changer
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

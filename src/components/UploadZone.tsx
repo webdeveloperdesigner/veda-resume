@@ -134,15 +134,17 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
-              className={`border-2 border-dashed rounded-xl p-12 text-center transition-all duration-300 ${
+              className={`border-2 border-dashed rounded-3xl p-16 text-center transition-all duration-300 ${
                 isDragging
                   ? 'border-emerald-500 bg-emerald-500/5 shadow-[0_0_30px_rgba(16,185,129,0.15)] scale-[1.02]'
-                  : 'border-white/10 hover:border-white/30 hover:bg-white/5'
+                  : 'border-gray-500/30 hover:border-gray-400 hover:bg-white/5'
               }`}
             >
-              <Upload className={`w-12 h-12 mx-auto mb-4 transition-colors ${isDragging ? 'text-emerald-400' : 'text-gray-400'}`} />
-              <h3 className="text-xl font-semibold mb-2">Drag & Drop your resume</h3>
-              <p className="text-gray-400 mb-6">Only PDF files are supported</p>
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full border border-gray-500/30 flex items-center justify-center bg-white/5">
+                <Upload className={`w-8 h-8 transition-colors ${isDragging ? 'text-emerald-400' : 'text-gray-400'}`} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Upload your Resume</h3>
+              <p className="text-gray-400 mb-6 max-w-sm mx-auto text-sm">Drag & drop your PDF resume here, or click to browse. Max size 5MB.</p>
               
               <label className="cursor-pointer inline-flex items-center justify-center px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-all active:scale-[0.98] font-medium text-sm text-white border border-white/5 backdrop-blur-md">
                 <input 

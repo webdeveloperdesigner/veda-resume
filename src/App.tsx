@@ -77,7 +77,11 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#0C0C0C] text-[#D7E2EA] font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen flex flex-col font-sans selection:bg-emerald-500/30 relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="fixed top-0 left-0 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="fixed bottom-0 right-0 w-[500px] h-[500px] bg-fuchsia-500/20 rounded-full blur-[120px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
+
       <Navbar 
         currentView={currentView} 
         onNavigate={setCurrentView} 

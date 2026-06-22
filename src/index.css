@@ -6,8 +6,16 @@
 
 @layer base {
   body {
-    @apply bg-background text-primaryText antialiased;
+    @apply antialiased min-h-screen bg-gray-50 text-gray-900 dark:bg-black dark:text-gray-100 transition-colors duration-300;
     font-family: 'Kanit', sans-serif;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+  
+  .dark body {
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   }
 }
 
@@ -32,7 +40,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0C0C0C;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {

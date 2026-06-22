@@ -71,7 +71,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
             </button>
 
             <a 
-              href="https://survey.bodhai.pages.dev/survey/-OvagieJv9Z3YEl1wBbX"
+              href="https://survey.bodhai.pages.dev/survey/veda-resume-feedback-survey"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-black transition-colors"

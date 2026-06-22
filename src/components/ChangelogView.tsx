@@ -4,6 +4,18 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.3',
+    date: 'June 23, 2026',
+    title: 'Cinematic Dark Mode & System Theme Integration',
+    description: 'We have completely redesigned the VEDA platform to feature a stunning, pure-black cinematic dark mode. This update includes dynamic background glows, an engineered CSS grid pattern, and automated system theme detection to provide an unparalleled premium user experience.',
+    changes: [
+      { type: 'ui', text: 'Implemented pure-black background design with dynamic CSS grid overlays.' },
+      { type: 'feature', text: 'Added automated system theme detection and intelligent Tailwind dark mode toggling.' },
+      { type: 'ui', text: 'Redesigned the Upload Zone with premium dashed borders, circular icon containers, and interactive glow states.' },
+      { type: 'ui', text: 'Optimized Navbar layout and updated feedback survey links.' }
+    ]
+  },
+  {
     version: 'v1.2.2',
     date: 'June 21, 2026',
     title: 'Mobile Navigation & Feedback Integration',
