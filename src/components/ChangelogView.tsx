@@ -4,6 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.7',
+    date: 'June 23, 2026',
+    title: 'Security Patch & Light Mode Fixes',
+    description: 'We have resolved a high-severity vulnerability reported by Dependabot and completed the light mode UI implementation across all remaining views.',
+    changes: [
+      { type: 'bugfix', text: 'Resolved CVE-2024-45296 (ReDoS) by overriding path-to-regexp to a patched version.' },
+      { type: 'ui', text: 'Implemented full light mode support for the Changelog, Versions, and Updates views.' },
+      { type: 'ui', text: 'Ensured all typography and containers dynamically respond to the system theme toggle.' }
+    ]
+  },
+  {
     version: 'v1.2.6',
     date: 'June 23, 2026',
     title: 'Navbar Clean Up & Code Stability',
@@ -143,10 +154,10 @@ export function ChangelogView() {
       className="max-w-3xl mx-auto px-6 py-32"
     >
       <div className="mb-20">
-        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-white mb-6">
+        <h1 className="text-5xl md:text-7xl font-black tracking-tighter text-gray-900 dark:text-white mb-6">
           Changelog
         </h1>
-        <p className="text-xl text-gray-400 leading-relaxed max-w-xl">
+        <p className="text-xl text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
           New updates and improvements to VEDA. We are constantly shipping features to help you land your dream job.
         </p>
       </div>
@@ -162,17 +173,17 @@ export function ChangelogView() {
             className="group"
           >
             <div className="flex items-center space-x-4 mb-6">
-              <span className="px-3 py-1 rounded-full bg-white text-black text-sm font-bold tracking-widest uppercase">
+              <span className="px-3 py-1 rounded-full bg-gray-900 dark:bg-white text-white dark:text-black text-sm font-bold tracking-widest uppercase">
                 {release.version}
               </span>
               <span className="text-gray-500 font-medium">{release.date}</span>
             </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight group-hover:text-emerald-400 transition-colors">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 tracking-tight group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">
               {release.title}
             </h2>
             
-            <p className="text-lg text-gray-400 mb-8 leading-relaxed max-w-2xl">
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed max-w-2xl">
               {release.description}
             </p>
 
@@ -184,7 +195,7 @@ export function ChangelogView() {
                   exit={{ height: 0, opacity: 0 }}
                   className="overflow-hidden"
                 >
-                  <div className="bg-[#121212] border border-white/5 rounded-3xl p-8 shadow-2xl transition-all hover:border-white/10 relative mt-4">
+                  <div className="bg-white dark:bg-[#121212] border border-gray-200 dark:border-white/5 rounded-3xl p-8 shadow-2xl transition-all hover:border-gray-300 dark:hover:border-white/10 relative mt-4">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
                     <ul className="space-y-5 relative z-10">
                       {release.changes.map((change, cIdx) => {
@@ -194,7 +205,7 @@ export function ChangelogView() {
                             <span className={`px-2.5 py-1 rounded-md text-xs font-bold uppercase tracking-wider ${style.bg} ${style.text} mt-0.5 flex-shrink-0`}>
                               {style.label}
                             </span>
-                            <span className="text-gray-300 text-base leading-relaxed">{change.text}</span>
+                            <span className="text-gray-700 dark:text-gray-300 text-base leading-relaxed">{change.text}</span>
                           </li>
                         );
                       })}
@@ -206,7 +217,7 @@ export function ChangelogView() {
             
             <button 
               onClick={() => setExpandedId(expandedId === idx ? -1 : idx)}
-              className="mt-6 flex items-center space-x-2 text-emerald-400 font-semibold hover:text-emerald-300 transition-colors opacity-100 transform duration-300"
+              className="mt-6 flex items-center space-x-2 text-emerald-500 dark:text-emerald-400 font-semibold hover:text-emerald-600 dark:hover:text-emerald-300 transition-colors opacity-100 transform duration-300"
             >
               <span>{expandedId === idx ? 'Hide release notes' : 'Read full release notes'}</span>
               <motion.div animate={{ rotate: expandedId === idx ? 180 : 0 }}>

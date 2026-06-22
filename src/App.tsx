@@ -169,8 +169,8 @@ function App() {
 
       {/* Global Footer */}
       <footer className="w-full text-center py-8 mt-auto border-t border-gray-200 dark:border-white/5 bg-gray-100/50 dark:bg-black/20">
-        <p className="text-sm text-gray-500">
-          © {new Date().getFullYear()} VEDA Resume. <a href="https://bodhai.pages.dev" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors">Co-powered by BodhAI</a>.
+        <p className="text-sm text-gray-600 dark:text-gray-500">
+          © {new Date().getFullYear()} VEDA Resume. <a href="https://bodhai.pages.dev" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-500 dark:text-gray-400 dark:hover:text-emerald-400 transition-colors font-medium">Co-powered by BodhAI</a>.
         </p>
       </footer>
     </div>
