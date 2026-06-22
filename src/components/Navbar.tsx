@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bell, Menu, X, Star } from 'lucide-react';
+import { Bell, Menu, X, Star, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
   currentView: 'home' | 'changelog' | 'versions';
@@ -10,6 +10,24 @@ interface NavbarProps {
 
 export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true); // default to dark per our index.html setup
+
+  useEffect(() => {
+    // Sync initial state with document class
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
+  const toggleTheme = () => {
+    if (isDark) {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+      setIsDark(false);
+    } else {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+      setIsDark(true);
+    }
+  };
 
   const handleNav = (view: 'home' | 'changelog' | 'versions') => {
     onNavigate(view);
@@ -93,6 +111,14 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
 
           {/* Right: CTA & Mobile Toggle */}
           <div className="flex items-center space-x-3">
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-gray-500 hover:text-black bg-gray-50 hover:bg-gray-100 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
+              title="Toggle Theme"
+            >
+              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
+            </button>
+
             <button 
               onClick={() => handleNav('home')}
               className="hidden sm:block bg-black text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-gray-800 transition-colors"

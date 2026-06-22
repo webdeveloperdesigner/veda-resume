@@ -27,10 +27,10 @@ const itemVariants: Variants = {
 const ProgressBar = ({ label, value }: { label: string; value: number }) => (
   <div className="mb-4">
     <div className="flex justify-between mb-1">
-      <span className="text-sm font-medium tracking-wide uppercase text-gray-400">{label}</span>
-      <span className="text-sm font-bold text-gray-200">{value}%</span>
+      <span className="text-sm font-medium tracking-wide uppercase text-gray-500 dark:text-gray-400">{label}</span>
+      <span className="text-sm font-bold text-gray-900 dark:text-gray-200">{value}%</span>
     </div>
-    <div className="w-full h-2.5 bg-black/40 rounded-full overflow-hidden shadow-inner">
+    <div className="w-full h-2.5 bg-gray-200 dark:bg-black/40 rounded-full overflow-hidden shadow-inner">
       <motion.div
         initial={{ width: 0 }}
         whileInView={{ width: `${value}%` }}
@@ -83,11 +83,11 @@ export function ResultView({ data, onReset }: ResultViewProps) {
         <p className={`text-2xl font-semibold tracking-wide uppercase ${scoreMeta.color} ${scoreMeta.glow}`}>
           {scoreMeta.label}
         </p>
-        <p className="text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">{data.summary}</p>
+        <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">{data.summary}</p>
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <motion.div variants={itemVariants} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 shadow-xl relative overflow-hidden">
+        <motion.div variants={itemVariants} className="bg-white dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-8 shadow-xl relative overflow-hidden">
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-[50px] pointer-events-none" />
           <h3 className="text-xl font-bold mb-6 flex items-center space-x-2 relative z-10">
             <TrendingUp className="w-6 h-6 text-emerald-400" />
@@ -101,7 +101,7 @@ export function ResultView({ data, onReset }: ResultViewProps) {
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 space-y-8 shadow-xl relative overflow-hidden">
+        <motion.div variants={itemVariants} className="bg-white dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-8 space-y-8 shadow-xl relative overflow-hidden">
           <div className="absolute bottom-0 right-0 w-32 h-32 bg-blue-500/5 rounded-full blur-[50px] pointer-events-none" />
           <div className="relative z-10">
             {data.industryFit && (
@@ -110,11 +110,11 @@ export function ResultView({ data, onReset }: ResultViewProps) {
                   <Briefcase className="w-6 h-6" />
                   <span>Industry Fit</span>
                 </h3>
-                <p className="text-gray-300 leading-relaxed bg-black/20 p-4 rounded-xl border border-white/5">{data.industryFit}</p>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-black/20 p-4 rounded-xl border border-gray-200 dark:border-white/5">{data.industryFit}</p>
               </div>
             )}
             {data.skillGap && data.skillGap.length > 0 && (
-              <div className="mt-8 pt-6 border-t border-white/5">
+              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/5">
                 <h3 className="text-sm font-bold mb-4 text-indigo-400 tracking-wider uppercase flex items-center space-x-2">
                   <Target className="w-4 h-4" />
                   <span>Potential Skill Gaps</span>
@@ -136,14 +136,14 @@ export function ResultView({ data, onReset }: ResultViewProps) {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <motion.div variants={itemVariants} className="bg-green-500/5 backdrop-blur-md border border-green-500/20 rounded-2xl p-8 shadow-xl">
+        <motion.div variants={itemVariants} className="bg-green-50 dark:bg-green-500/5 backdrop-blur-md border border-green-200 dark:border-green-500/20 rounded-2xl p-8 shadow-xl">
           <h3 className="text-xl font-bold mb-6 flex items-center space-x-2 text-green-400">
             <CheckCircle2 className="w-6 h-6" />
             <span>Key Strengths</span>
           </h3>
           <ul className="space-y-4">
             {data.strengths.map((str, i) => (
-              <li key={i} className="flex items-start space-x-3 text-gray-300">
+              <li key={i} className="flex items-start space-x-3 text-gray-700 dark:text-gray-300">
                 <div className="w-1.5 h-1.5 rounded-full bg-green-500 mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(34,197,94,0.8)]" />
                 <span className="leading-relaxed">{str}</span>
               </li>
@@ -151,14 +151,14 @@ export function ResultView({ data, onReset }: ResultViewProps) {
           </ul>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="bg-amber-500/5 backdrop-blur-md border border-amber-500/20 rounded-2xl p-8 shadow-xl">
+        <motion.div variants={itemVariants} className="bg-amber-50 dark:bg-amber-500/5 backdrop-blur-md border border-amber-200 dark:border-amber-500/20 rounded-2xl p-8 shadow-xl">
           <h3 className="text-xl font-bold mb-6 flex items-center space-x-2 text-amber-400">
             <AlertTriangle className="w-6 h-6" />
             <span>Critical Weaknesses</span>
           </h3>
           <ul className="space-y-4">
             {data.weaknesses.map((wk, i) => (
-              <li key={i} className="flex items-start space-x-3 text-gray-300">
+              <li key={i} className="flex items-start space-x-3 text-gray-700 dark:text-gray-300">
                 <div className="w-1.5 h-1.5 rounded-full bg-amber-500 mt-2.5 flex-shrink-0 shadow-[0_0_5px_rgba(245,158,11,0.8)]" />
                 <span className="leading-relaxed">{wk}</span>
               </li>
@@ -171,7 +171,7 @@ export function ResultView({ data, onReset }: ResultViewProps) {
         <h3 className="text-2xl font-bold flex items-center space-x-2">
           <span className="text-teal-400">Smart Rewrites</span>
         </h3>
-        <p className="text-gray-400">Before and after comparisons to maximize impact.</p>
+        <p className="text-gray-600 dark:text-gray-400">Before and after comparisons to maximize impact.</p>
         <div className="space-y-6">
           {data.rewrites.map((rw, i) => (
             <motion.div 
@@ -180,17 +180,17 @@ export function ResultView({ data, onReset }: ResultViewProps) {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-6 shadow-xl"
+              className="bg-white dark:bg-white/5 backdrop-blur-md border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-xl"
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest text-amber-500 mb-3 opacity-80">Original</h4>
-                  <p className="text-gray-400/80 line-through decoration-amber-500/30 leading-relaxed">{rw.original}</p>
+                  <p className="text-gray-500 dark:text-gray-400/80 line-through decoration-amber-500/30 leading-relaxed">{rw.original}</p>
                 </div>
                 <div>
                   <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">Suggested</h4>
                   <div className="relative group">
-                    <p className="text-gray-100 bg-emerald-500/10 border border-emerald-500/30 p-4 rounded-xl leading-relaxed shadow-[0_0_20px_rgba(16,185,129,0.05)]">
+                    <p className="text-gray-800 dark:text-gray-100 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 p-4 rounded-xl leading-relaxed shadow-[0_0_20px_rgba(16,185,129,0.05)]">
                       {rw.suggested}
                     </p>
                     <button 
@@ -203,8 +203,8 @@ export function ResultView({ data, onReset }: ResultViewProps) {
                   </div>
                 </div>
               </div>
-              <div className="mt-5 pt-5 border-t border-white/10">
-                <p className="text-sm text-gray-400 leading-relaxed"><strong className="text-gray-300 tracking-wide">WHY: </strong>{rw.reason}</p>
+              <div className="mt-5 pt-5 border-t border-gray-200 dark:border-white/10">
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"><strong className="text-gray-800 dark:text-gray-300 tracking-wide">WHY: </strong>{rw.reason}</p>
               </div>
             </motion.div>
           ))}
@@ -214,7 +214,7 @@ export function ResultView({ data, onReset }: ResultViewProps) {
       <motion.div variants={itemVariants} className="text-center pt-12">
         <button
           onClick={onReset}
-          className="px-10 py-4 rounded-full font-bold text-white bg-white/10 border border-white/20 hover:bg-white/20 backdrop-blur-md transition-all active:scale-[0.98] shadow-xl"
+          className="px-10 py-4 rounded-full font-bold text-gray-700 dark:text-white bg-white dark:bg-white/10 border border-gray-200 dark:border-white/20 hover:bg-gray-50 dark:hover:bg-white/20 backdrop-blur-md transition-all active:scale-[0.98] shadow-xl"
         >
           Analyze Another Resume
         </button>

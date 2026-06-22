@@ -126,7 +126,7 @@ function App() {
             </motion.h1>
             <motion.p 
               variants={itemVariants}
-              className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed"
+              className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
             >
               Virtual Employability & Document Analyzer (VEDA) deeply evaluates your career profile using knowledge-driven insights. Drop your resume to uncover skill gaps, industry fit, and actionable improvements.
             </motion.p>
@@ -151,10 +151,10 @@ function App() {
               <AlertCircle className="w-10 h-10 text-red-500" />
             </div>
             <h2 className="text-2xl font-bold">Analysis Failed</h2>
-            <p className="text-gray-400">{errorMsg}</p>
+            <p className="text-gray-600 dark:text-gray-400">{errorMsg}</p>
             <button
               onClick={handleReset}
-              className="px-8 py-3 mt-4 rounded-full font-bold text-gray-300 border border-white/10 bg-white/5 hover:bg-white/10 backdrop-blur-sm transition-all active:scale-[0.98]"
+              className="px-8 py-3 mt-4 rounded-full font-bold text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-white/10 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 backdrop-blur-sm transition-all active:scale-[0.98]"
             >
               Try Again
             </button>
@@ -168,7 +168,7 @@ function App() {
       )}
 
       {/* Global Footer */}
-      <footer className="w-full text-center py-8 mt-auto border-t border-white/5 bg-black/20">
+      <footer className="w-full text-center py-8 mt-auto border-t border-gray-200 dark:border-white/5 bg-gray-100/50 dark:bg-black/20">
         <p className="text-sm text-gray-500">
           © {new Date().getFullYear()} VEDA Resume. <a href="https://bodhai.pages.dev" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-emerald-400 transition-colors">Co-powered by BodhAI</a>.
         </p>

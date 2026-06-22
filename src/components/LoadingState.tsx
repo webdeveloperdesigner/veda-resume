@@ -37,7 +37,7 @@ export function LoadingState() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="text-lg text-gray-300 font-medium absolute w-full"
+            className="text-lg text-gray-600 dark:text-gray-300 font-medium absolute w-full"
           >
             {MESSAGES[messageIndex]}
           </motion.p>

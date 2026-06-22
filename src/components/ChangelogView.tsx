@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.4',
+    date: 'June 23, 2026',
+    title: 'System Theme Toggle & UI Refinements',
+    description: 'We have introduced a dedicated theme toggle button to switch seamlessly between light and dark modes, along with global CSS refinements to ensure perfect readability across all themes.',
+    changes: [
+      { type: 'feature', text: 'Added a sun/moon toggle icon in the Navbar for manual theme control.' },
+      { type: 'ui', text: 'Refined global text and background colors to fully support light mode.' }
+    ]
+  },
+  {
     version: 'v1.2.3',
     date: 'June 23, 2026',
     title: 'Cinematic Dark Mode & System Theme Integration',

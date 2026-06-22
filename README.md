@@ -647,6 +647,10 @@ DEALINGS IN THE SOFTWARE.
 | **v1.1.1** | 2026-06-21 | Codebase stability, strict TypeScript catches, and zero-warning builds.         |
 | **v1.1.2** | 2026-06-21 | SEO meta tags optimization, custom favicon, and "Powered by Gemini" branding.   |
 | **v1.2.0** | 2026-06-21 | Major UI overhaul: Floating Navbar, Updates Modal, and Dedicated Versions Page. |
+| **v1.2.1** | 2026-06-21 | Navbar TypeScript Fixes. |
+| **v1.2.2** | 2026-06-21 | Mobile Navigation & Feedback Integration. |
+| **v1.2.3** | 2026-06-23 | Cinematic Dark Mode & System Theme Integration. |
+| **v1.2.4** | 2026-06-23 | System Theme Toggle & UI Refinements. |
 
 ---
 

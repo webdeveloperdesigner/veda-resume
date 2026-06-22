@@ -97,7 +97,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
         <button
           onClick={() => setMode('pdf')}
           className={`px-6 py-2 rounded-full font-semibold transition-all hover:scale-[1.02] active:scale-[0.98] ${
-            mode === 'pdf' ? 'bg-white/10 text-white backdrop-blur-sm border border-white/10 shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'
+            mode === 'pdf' ? 'bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white backdrop-blur-sm border border-gray-300 dark:border-white/10 shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
           }`}
         >
           Upload PDF
@@ -105,27 +105,27 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
         <button
           onClick={() => setMode('text')}
           className={`px-6 py-2 rounded-full font-semibold transition-all hover:scale-[1.02] active:scale-[0.98] ${
-            mode === 'text' ? 'bg-white/10 text-white backdrop-blur-sm border border-white/10 shadow-lg' : 'text-gray-400 hover:text-white hover:bg-white/5'
+            mode === 'text' ? 'bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white backdrop-blur-sm border border-gray-300 dark:border-white/10 shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
           }`}
         >
           Paste Text
         </button>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
+      <motion.div variants={itemVariants} className="bg-white dark:bg-white/5 backdrop-blur-2xl border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute -top-40 -right-40 w-80 h-80 bg-emerald-500/10 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-blue-500/10 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="relative z-10">
           <div className="mb-6">
-            <label className="block text-sm font-medium text-gray-400 mb-2">Target Role (Optional)</label>
+            <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Target Role (Optional)</label>
             <input 
               type="text" 
               value={targetRole}
               onChange={(e) => setTargetRole(e.target.value)}
               placeholder="e.g. Senior Frontend Developer"
-              className="w-full bg-black/40 border border-white/10 rounded-xl p-3 text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
+              className="w-full bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-3 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
             />
           </div>
 
@@ -140,13 +140,13 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
                   : 'border-gray-500/30 hover:border-gray-400 hover:bg-white/5'
               }`}
             >
-              <div className="w-20 h-20 mx-auto mb-6 rounded-full border border-gray-500/30 flex items-center justify-center bg-white/5">
-                <Upload className={`w-8 h-8 transition-colors ${isDragging ? 'text-emerald-400' : 'text-gray-400'}`} />
+              <div className="w-20 h-20 mx-auto mb-6 rounded-full border border-gray-300 dark:border-gray-500/30 flex items-center justify-center bg-gray-50 dark:bg-white/5">
+                <Upload className={`w-8 h-8 transition-colors ${isDragging ? 'text-emerald-500 dark:text-emerald-400' : 'text-gray-400'}`} />
               </div>
               <h3 className="text-xl font-semibold mb-2">Upload your Resume</h3>
-              <p className="text-gray-400 mb-6 max-w-sm mx-auto text-sm">Drag & drop your PDF resume here, or click to browse. Max size 5MB.</p>
+              <p className="text-gray-500 dark:text-gray-400 mb-6 max-w-sm mx-auto text-sm">Drag & drop your PDF resume here, or click to browse. Max size 5MB.</p>
               
-              <label className="cursor-pointer inline-flex items-center justify-center px-8 py-3 rounded-full bg-white/10 hover:bg-white/20 transition-all active:scale-[0.98] font-medium text-sm text-white border border-white/5 backdrop-blur-md">
+              <label className="cursor-pointer inline-flex items-center justify-center px-8 py-3 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 transition-all active:scale-[0.98] font-medium text-sm text-gray-700 dark:text-white border border-gray-200 dark:border-white/5 backdrop-blur-md">
                 <input 
                   type="file" 
                   className="hidden" 
@@ -160,7 +160,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
           ) : (
             <div className="space-y-4">
               <textarea
-                className="w-full h-64 bg-black/40 border border-white/10 rounded-xl p-4 text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all resize-none shadow-inner"
+                className="w-full h-64 bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-4 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all resize-none shadow-inner"
                 placeholder="Paste your resume text here..."
                 value={textInput}
                 onChange={(e) => setTextInput(e.target.value)}
