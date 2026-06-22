@@ -521,7 +521,7 @@ test("throws PDF_NO_TEXT for tiny PDFs", async () => {
 | Milestone | Target Release | Description                                                       |
 | --------- | -------------- | ----------------------------------------------------------------- |
 | **v1.0**  | July 2026      | Initial release – core parsing, Gemini integration, cinematic UI. |
-| **v2.0**  | July 2026      | Multi‑language support (English, Spanish, Mandarin).              |
+| **v2.0**  | July 2026      | Multi‑language support (English + Major Indian Regional Languages). |
 | **v3.0**  | July 2026      | Integrate Google Jobs API for auto‑suggested job postings.        |
 | **v4.0**  | Q4 2026        | Real‑time collaborative resume editing (WebSocket).               |
 | **v5.0**  | Q4 2026        | Export results as PDF/HTML report with branding.                  |

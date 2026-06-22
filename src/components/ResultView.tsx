@@ -3,10 +3,12 @@ import { motion, Variants } from 'framer-motion';
 import { CheckCircle2, AlertTriangle, Briefcase, TrendingUp, Target } from 'lucide-react';
 import { ReviewResult } from '../lib/types';
 import { FeedbackModal } from './FeedbackModal';
+import { StatsBento } from './StatsBento';
 
 interface ResultViewProps {
   data: ReviewResult;
   onReset: () => void;
+  analysisTime: string;
 }
 
 const containerVariants: Variants = {
@@ -50,7 +52,7 @@ const getScoreLabel = (score: number) => {
   return { label: 'Requires Overhaul', color: 'text-red-400', glow: 'drop-shadow-[0_0_20px_rgba(248,113,113,0.3)]' };
 };
 
-export function ResultView({ data, onReset }: ResultViewProps) {
+export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
   const scoreMeta = getScoreLabel(data.overallScore);
   const [displayScore, setDisplayScore] = useState(0);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
@@ -282,7 +284,15 @@ export function ResultView({ data, onReset }: ResultViewProps) {
         </div>
       </motion.div>
 
-      <motion.div variants={itemVariants} className="text-center pt-12">
+      <div className="pt-8">
+        <StatsBento 
+          categoriesCount={Object.keys(data.categoryScores).length} 
+          rewritesCount={data.rewrites.length} 
+          responseTime={`${analysisTime}s`} 
+        />
+      </div>
+
+      <motion.div variants={itemVariants} className="text-center pt-8">
         <button
           onClick={() => {
             const hasGivenFeedback = localStorage.getItem('veda_feedback_given') === 'true';

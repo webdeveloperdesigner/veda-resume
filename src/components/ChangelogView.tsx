@@ -4,6 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.9',
+    date: 'June 23, 2026',
+    title: 'Real-Time Stats Dashboard & UI Enhancements',
+    description: 'We have introduced a dynamic statistics dashboard that showcases real-time metrics during your resume analysis, alongside crucial UI/UX refinements across the platform.',
+    changes: [
+      { type: 'feature', text: 'Added a real-time Stats Dashboard (Bento UI) to track API response time, rewritten bullets, and scored categories dynamically.' },
+      { type: 'ui', text: 'Enhanced the global footer with a premium, highlighted privacy badge to reinforce our zero-storage policy.' },
+      { type: 'bugfix', text: 'Resolved a CSS rendering bug in the loading spinner to ensure perfect visibility in both light and dark modes.' }
+    ]
+  },
+  {
     version: 'v1.2.8',
     date: 'June 23, 2026',
     title: 'Expert ATS AI Rewrite & Security Dashboard',

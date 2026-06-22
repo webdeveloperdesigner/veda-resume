@@ -37,7 +37,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
-                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.8 Release</p>
+                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.9 Release</p>
                     </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
@@ -51,8 +51,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Expert ATS Rewrite</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">The AI now acts as a 15+ year recruiter and generates a fully optimized ATS resume.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Real-Time Stats Dashboard</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Added a dynamic Bento UI dashboard to track real-time API response time and analysis metrics.</p>
                     </div>
                   </div>
                   
@@ -61,8 +61,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <ShieldCheck className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Security Center</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Added a dedicated dashboard to transparently track internal and external platform vulnerabilities.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Footer Privacy Badge</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Enhanced the global footer with a premium, highlighted privacy badge to reinforce zero-storage.</p>
                     </div>
                   </div>
 
@@ -71,8 +71,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Zap className="w-4 h-4 text-purple-500 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">User Feedback Loop</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Integrated a feedback modal to ensure we keep improving the analysis experience.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Loading Spinner Fixes</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Resolved a CSS rendering bug in the loading spinner to ensure perfect visibility in both themes.</p>
                     </div>
                   </div>
                 </div>

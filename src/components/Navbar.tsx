@@ -10,10 +10,9 @@ interface NavbarProps {
 
 export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isDark, setIsDark] = useState(true); // default to dark per our index.html setup
+  const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Sync initial state with document class
     setIsDark(document.documentElement.classList.contains('dark'));
   }, []);
 
@@ -41,14 +40,14 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
           initial={{ y: -50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-          className="pointer-events-auto bg-white shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-full px-4 py-3 flex items-center justify-between relative z-50"
+          className="pointer-events-auto bg-white/80 dark:bg-[#121212]/80 backdrop-blur-md shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-200 dark:border-white/10 rounded-full px-4 py-3 flex items-center justify-between relative z-50"
         >
           {/* Left: Logo */}
           <div className="flex items-center space-x-2 pl-2">
-            <div className="w-6 h-6 rounded bg-black flex items-center justify-center font-black text-white text-xs">
+            <div className="w-6 h-6 rounded bg-gray-900 dark:bg-white flex items-center justify-center font-black text-white dark:text-black text-xs">
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
             </div>
-            <span className="text-base font-bold text-black tracking-tight">VEDA Resume</span>
+            <span className="text-base font-bold text-gray-900 dark:text-white tracking-tight">VEDA Resume</span>
           </div>
 
           {/* Center: Desktop Links */}
@@ -56,7 +55,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
             <button 
               onClick={() => handleNav('home')}
               className={`text-sm font-semibold transition-colors ${
-                currentView === 'home' ? 'text-black' : 'text-gray-500 hover:text-black'
+                currentView === 'home' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Home
@@ -65,7 +64,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
             <button 
               onClick={() => handleNav('changelog')}
               className={`text-sm font-semibold transition-colors ${
-                currentView === 'changelog' ? 'text-black' : 'text-gray-500 hover:text-black'
+                currentView === 'changelog' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Changelog
@@ -74,7 +73,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
             <button 
               onClick={() => handleNav('versions')}
               className={`text-sm font-semibold transition-colors ${
-                currentView === 'versions' ? 'text-black' : 'text-gray-500 hover:text-black'
+                currentView === 'versions' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Versions
@@ -83,7 +82,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
             <button 
               onClick={() => handleNav('security')}
               className={`text-sm font-semibold transition-colors ${
-                currentView === 'security' ? 'text-black' : 'text-gray-500 hover:text-black'
+                currentView === 'security' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
               Security
@@ -91,7 +90,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
 
             <button 
               onClick={onOpenPopup}
-              className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-black transition-colors"
+              className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <Bell className="w-4 h-4" />
               <span>Updates</span>
@@ -101,7 +100,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               href="https://survey.bodhai.pages.dev/survey/veda-resume-feedback-survey"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-black transition-colors"
+              className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <span>Feedback</span>
             </a>
@@ -110,7 +109,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               href="https://github.com/webdeveloperdesigner/veda-resume"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-black transition-colors"
+              className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
               title="Give us a star if it's good!"
             >
               <Star className="w-4 h-4" />
@@ -122,14 +121,14 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
           <div className="flex items-center space-x-3">
             <button
               onClick={toggleTheme}
-              className="p-2 text-black bg-gray-100 hover:bg-gray-200 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
+              className="p-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
               title="Toggle Theme"
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-black bg-gray-100 rounded-full hover:bg-gray-200 transition-colors pointer-events-auto"
+              className="lg:hidden p-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 rounded-full hover:bg-gray-200 dark:hover:bg-white/20 transition-colors pointer-events-auto"
             >
               {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
@@ -144,25 +143,25 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.2 }}
-              className="absolute top-16 left-0 right-0 bg-white rounded-3xl shadow-xl p-4 flex flex-col space-y-2 pointer-events-auto z-40 lg:hidden border border-gray-100"
+              className="absolute top-16 left-0 right-0 bg-white dark:bg-[#1a1a1a] rounded-3xl shadow-2xl p-4 flex flex-col space-y-2 pointer-events-auto z-40 lg:hidden border border-gray-100 dark:border-white/10"
             >
-              <button onClick={() => handleNav('home')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'home' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Home</button>
-              <button onClick={() => handleNav('changelog')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'changelog' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Changelog</button>
-              <button onClick={() => handleNav('versions')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'versions' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Versions</button>
-              <button onClick={() => handleNav('security')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'security' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Security</button>
+              <button onClick={() => handleNav('home')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'home' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Home</button>
+              <button onClick={() => handleNav('changelog')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'changelog' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Changelog</button>
+              <button onClick={() => handleNav('versions')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'versions' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Versions</button>
+              <button onClick={() => handleNav('security')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'security' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Security</button>
               
-              <div className="h-px bg-gray-100 my-2" />
+              <div className="h-px bg-gray-100 dark:bg-white/10 my-2" />
               
-              <button onClick={() => { onOpenPopup(); setIsMobileMenuOpen(false); }} className="p-3 rounded-xl font-semibold text-left text-gray-600 hover:bg-gray-50 flex items-center space-x-2">
+              <button onClick={() => { onOpenPopup(); setIsMobileMenuOpen(false); }} className="p-3 rounded-xl font-semibold text-left text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center space-x-2">
                 <Bell className="w-5 h-5" />
                 <span>Updates</span>
               </button>
               
-              <a href="https://survey.bodhai.pages.dev/survey/-OvagieJv9Z3YEl1wBbX" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl font-semibold text-left text-gray-600 hover:bg-gray-50 flex items-center space-x-2">
+              <a href="https://survey.bodhai.pages.dev/survey/veda-resume-feedback-survey" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl font-semibold text-left text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center space-x-2">
                 <span>Feedback</span>
               </a>
 
-              <a href="https://github.com/webdeveloperdesigner/veda-resume" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl font-semibold text-left text-gray-600 hover:bg-gray-50 flex items-center space-x-2">
+              <a href="https://github.com/webdeveloperdesigner/veda-resume" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl font-semibold text-left text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center space-x-2">
                 <Star className="w-5 h-5" />
                 <span>Star us on GitHub!</span>
               </a>

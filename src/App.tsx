@@ -8,8 +8,10 @@ import { WhatsNewPopup } from './components/WhatsNewPopup';
 import { ChangelogView } from './components/ChangelogView';
 import { VersionsView } from './components/VersionsView';
 import { SecurityReportView } from './components/SecurityReportView';
+import { StatsBento } from './components/StatsBento';
+import { V2PreviewModal } from './components/V2PreviewModal';
 import { AppState, ReviewResult } from './lib/types';
-import { AlertCircle, Sparkles } from 'lucide-react';
+import { AlertCircle, Sparkles, Zap, Shield, Target, FileEdit, Clock } from 'lucide-react';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -32,10 +34,13 @@ function App() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [currentView, setCurrentView] = useState<'home' | 'changelog' | 'versions' | 'security'>('home');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [isV2ModalOpen, setIsV2ModalOpen] = useState(false);
+  const [analysisTime, setAnalysisTime] = useState<string>('~15');
 
   const handleProcessText = async (text: string, targetRole?: string) => {
     setAppState('loading');
     setErrorMsg(null);
+    const startTime = Date.now();
     
     try {
       const response = await fetch('/api/review', {
@@ -61,6 +66,9 @@ function App() {
       }
 
       const data = await response.json();
+      const endTime = Date.now();
+      setAnalysisTime(((endTime - startTime) / 1000).toFixed(1));
+      
       setResult(data);
       setAppState('result');
     } catch (err: unknown) {
@@ -95,6 +103,11 @@ function App() {
         onNavigateToChangelog={() => setCurrentView('changelog')} 
       />
 
+      <V2PreviewModal
+        isOpen={isV2ModalOpen}
+        onClose={() => setIsV2ModalOpen(false)}
+      />
+
       {currentView === 'home' ? (
         <main className="max-w-6xl mx-auto px-6 py-24 md:py-32">
         {appState === 'idle' && (
@@ -104,7 +117,15 @@ function App() {
             animate="show"
             className="text-center space-y-6 mb-16"
           >
-            <div className="flex items-center justify-center space-x-3 mb-2">
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-2">
+              <motion.button 
+                variants={itemVariants} 
+                onClick={() => setIsV2ModalOpen(true)}
+                className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 transition-colors cursor-pointer group"
+              >
+                <Zap className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
+                <span className="text-xs font-bold text-purple-400 tracking-widest uppercase animate-pulse">V2 Coming Soon</span>
+              </motion.button>
               <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                 <Sparkles className="w-4 h-4 text-emerald-400" />
                 <span className="text-xs font-bold text-emerald-400 tracking-widest uppercase">Powered by Gemini</span>
@@ -135,11 +156,17 @@ function App() {
         )}
 
         {appState === 'idle' && <UploadZone onProcessText={handleProcessText} />}
+
+        {appState === 'idle' && (
+          <div className="mt-20">
+            <StatsBento categoriesCount={4} rewritesCount={3} responseTime="~15s" />
+          </div>
+        )}
         
         {appState === 'loading' && <LoadingState />}
         
         {appState === 'result' && result && (
-          <ResultView data={result} onReset={handleReset} />
+          <ResultView data={result} onReset={handleReset} analysisTime={analysisTime} />
         )}
 
         {appState === 'error' && (
@@ -172,9 +199,13 @@ function App() {
 
       {/* Global Footer */}
       <footer className="w-full text-center py-8 mt-auto border-t border-gray-200 dark:border-white/5 bg-gray-100/50 dark:bg-black/20">
-        <p className="text-sm text-gray-600 dark:text-gray-500">
+        <p className="text-sm text-gray-600 dark:text-gray-500 mb-4">
           © {new Date().getFullYear()} VEDA Resume. <a href="https://bodhai.pages.dev" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-500 dark:text-gray-400 dark:hover:text-emerald-400 transition-colors font-medium">Co-powered by BodhAI</a>.
         </p>
+        <div className="inline-flex items-center justify-center space-x-2 px-4 py-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-bold tracking-wide shadow-sm backdrop-blur-sm">
+          <Shield className="w-4 h-4" />
+          <span>Your resume is processed in real time and never stored.</span>
+        </div>
       </footer>
     </div>
   );

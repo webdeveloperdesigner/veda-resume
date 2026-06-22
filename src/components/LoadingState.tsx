@@ -27,7 +27,7 @@ export function LoadingState() {
       <div className="relative w-24 h-24 flex items-center justify-center mb-12">
         <div className="absolute inset-0 rounded-full border border-gray-300 dark:border-white/10 animate-[spin_4s_linear_infinite]"></div>
         <div className="absolute inset-2 rounded-full border border-gray-400 dark:border-white/20 animate-[spin_3s_linear_infinite_reverse]"></div>
-        <div className="absolute inset-7 rounded-full border-2 border-transparent border-b-gray-900 border-l-gray-900 dark:border-b-white dark:border-l-white animate-[spin_1s_linear_infinite]"></div>
+        <div className="absolute inset-7 rounded-full border-2 border-t-transparent border-r-transparent border-b-gray-900 border-l-gray-900 dark:border-t-transparent dark:border-r-transparent dark:border-b-white dark:border-l-white animate-[spin_1s_linear_infinite]"></div>
         <Sparkles className="w-8 h-8 text-gray-900 dark:text-white animate-pulse" />
       </div>
 
