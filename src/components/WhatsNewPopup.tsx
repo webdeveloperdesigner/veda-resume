@@ -46,33 +46,33 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                 </div>
 
                 <div className="space-y-4">
-                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-white/5 transition-colors">
+                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                     <div className="bg-amber-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
-                      <ShieldCheck className="w-4 h-4 text-amber-400" />
+                      <ShieldCheck className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Navbar Optimization</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">The Navbar has been decluttered by removing redundant elements, ensuring a cleaner focus on core actions.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Navbar Optimization</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">The Navbar has been decluttered by removing redundant elements, ensuring a cleaner focus on core actions.</p>
                     </div>
                   </div>
                   
-                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-white/5 transition-colors">
+                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                     <div className="bg-blue-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
-                      <Zap className="w-4 h-4 text-blue-400" />
+                      <Zap className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Theme Toggle Refinements</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">The dark mode toggle has been increased in size and given smoother hover states for better usability.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Theme Toggle Refinements</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">The dark mode toggle has been increased in size and given smoother hover states for better usability.</p>
                     </div>
                   </div>
 
-                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-white/5 transition-colors">
+                  <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                     <div className="bg-purple-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
-                      <Sparkles className="w-4 h-4 text-purple-400" />
+                      <Sparkles className="w-4 h-4 text-purple-500 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Codebase Stability</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Resolved underlying build warnings and improved code cleanliness.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Codebase Stability</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Resolved underlying build warnings and improved code cleanliness.</p>
                     </div>
                   </div>
                 </div>
