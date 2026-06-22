@@ -113,17 +113,10 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
           <div className="flex items-center space-x-3">
             <button
               onClick={toggleTheme}
-              className="p-2 text-gray-500 hover:text-black bg-gray-50 hover:bg-gray-100 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
+              className="p-2 text-black bg-gray-100 hover:bg-gray-200 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
               title="Toggle Theme"
             >
-              {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
-
-            <button 
-              onClick={() => handleNav('home')}
-              className="hidden sm:block bg-black text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-gray-800 transition-colors"
-            >
-              Get Started
+              {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -163,10 +156,6 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                 <Star className="w-5 h-5" />
                 <span>Star us on GitHub!</span>
               </a>
-
-              <button onClick={() => handleNav('home')} className="mt-4 p-3 rounded-xl font-bold text-center text-white bg-black hover:bg-gray-800 transition-colors sm:hidden">
-                Get Started
-              </button>
             </motion.div>
           )}
         </AnimatePresence>

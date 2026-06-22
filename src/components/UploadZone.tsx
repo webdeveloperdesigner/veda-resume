@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { motion, Variants } from 'framer-motion';
-import { Upload, AlertCircle } from 'lucide-react';
+import { AlertCircle } from 'lucide-react';
 import { extractTextFromPDF } from '../lib/pdfExtract';
 
 interface UploadZoneProps {

@@ -4,6 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.6',
+    date: 'June 23, 2026',
+    title: 'Navbar Clean Up & Code Stability',
+    description: 'We have optimized the Navbar by removing redundant calls to action and refining the theme toggle layout. We also resolved a TypeScript build error to ensure platform stability.',
+    changes: [
+      { type: 'ui', text: 'Removed redundant "Get Started" CTAs from desktop and mobile navigation.' },
+      { type: 'ui', text: 'Refined the size and hover states of the dark mode toggle.' },
+      { type: 'bugfix', text: 'Fixed a TypeScript build error related to unused icon imports.' }
+    ]
+  },
+  {
     version: 'v1.2.5',
     date: 'June 23, 2026',
     title: 'Two-Step Upload Confirmation',

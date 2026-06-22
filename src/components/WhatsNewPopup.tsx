@@ -37,7 +37,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
-                      <p className="text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.5 Release</p>
+                      <p className="text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.6 Release</p>
                     </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
@@ -51,8 +51,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <ShieldCheck className="w-4 h-4 text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Two-Step Upload Confirmation</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">VEDA now waits for you to explicitly confirm your resume before analysis begins, preventing accidental submissions.</p>
+                      <h3 className="font-bold text-gray-200">Navbar Optimization</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">The Navbar has been decluttered by removing redundant elements, ensuring a cleaner focus on core actions.</p>
                     </div>
                   </div>
                   
@@ -61,8 +61,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Zap className="w-4 h-4 text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">New "Review My Resume" Button</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">A highly visible, premium gradient button has been added to securely trigger the AI analysis process.</p>
+                      <h3 className="font-bold text-gray-200">Theme Toggle Refinements</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">The dark mode toggle has been increased in size and given smoother hover states for better usability.</p>
                     </div>
                   </div>
 
@@ -71,8 +71,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Sparkles className="w-4 h-4 text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-200">Upload State UI Refinements</h3>
-                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Enjoy clear before-and-after upload UI states, showing your file name and extracted character count securely.</p>
+                      <h3 className="font-bold text-gray-200">Codebase Stability</h3>
+                      <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">Resolved underlying build warnings and improved code cleanliness.</p>
                     </div>
                   </div>
                 </div>

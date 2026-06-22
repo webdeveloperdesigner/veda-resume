@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.2.6', date: 'June 23, 2026', title: 'Navbar Clean Up & Code Stability' },
   { version: 'v1.2.5', date: 'June 23, 2026', title: 'Two-Step Upload Confirmation' },
   { version: 'v1.2.4', date: 'June 23, 2026', title: 'System Theme Toggle & UI Refinements' },
   { version: 'v1.2.3', date: 'June 23, 2026', title: 'Cinematic Dark Mode & System Theme Integration' },
