@@ -7,6 +7,7 @@ import { Navbar } from './components/Navbar';
 import { WhatsNewPopup } from './components/WhatsNewPopup';
 import { ChangelogView } from './components/ChangelogView';
 import { VersionsView } from './components/VersionsView';
+import { SecurityReportView } from './components/SecurityReportView';
 import { AppState, ReviewResult } from './lib/types';
 import { AlertCircle, Sparkles } from 'lucide-react';
 
@@ -29,7 +30,7 @@ function App() {
   const [appState, setAppState] = useState<AppState>('idle');
   const [result, setResult] = useState<ReviewResult | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [currentView, setCurrentView] = useState<'home' | 'changelog' | 'versions'>('home');
+  const [currentView, setCurrentView] = useState<'home' | 'changelog' | 'versions' | 'security'>('home');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const handleProcessText = async (text: string, targetRole?: string) => {
@@ -163,8 +164,10 @@ function App() {
         </main>
       ) : currentView === 'changelog' ? (
         <ChangelogView />
-      ) : (
+      ) : currentView === 'versions' ? (
         <VersionsView />
+      ) : (
+        <SecurityReportView />
       )}
 
       {/* Global Footer */}

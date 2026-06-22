@@ -24,19 +24,21 @@ export default async function handler(
 
   const roleContext = targetRole ? `The candidate is specifically targeting the role of: "${targetRole}". Evaluate their fit for this specific role.` : 'Evaluate their general employability.';
 
-  const prompt = `You are VEDA, a senior technical recruiter and resume coach.
-Your job is to analyze the following resume and provide brutally honest, highly structured feedback. Focus your feedback on constructive, actionable critiques rather than generic platitudes.
-${roleContext}
-You must return your response in the exact JSON format specified by the responseSchema.
+  const prompt = `Act as an expert ATS (Applicant Tracking System) resume writer and recruiter with 15+ years of hiring experience.
 
-Focus on:
-1. Employability Metrics: Rate Clarity, Impact, ATS Compatibility, and Structure out of 100.
-2. Smart Rewrites: Find the 3 weakest bullet points and rewrite them using action verbs and quantified metrics. 
-   Example of a GOOD rewrite:
-   Original: "Helped with database"
-   Suggested: "Optimized SQL queries, reducing database load times by 40% and improving overall application performance."
-   Reason: "The original lacks impact and metrics. The suggested version uses strong action verbs and quantifies the achievement."
-3. Knowledge-Driven Insights: Identify the industry the candidate is targeting, provide an industry fit summary, and highlight any potential skill gaps.
+I am providing you with my current resume.
+${roleContext}
+
+Your tasks:
+1. Analyze my current resume against the job description/role.
+2. Calculate an estimated ATS score out of 100 and explain the scoring breakdown (Skills match, Keywords match, Experience relevance, Education/certifications, Formatting and readability) in the JSON fields.
+3. Identify missing keywords, technical skills, weak bullet points, and gaps or optimization opportunities.
+4. Rewrite and optimize the entire resume to maximize ATS compatibility while keeping information truthful. Integrate important keywords naturally.
+5. Rewrite experience bullets using strong action verbs and measurable achievements where possible.
+6. Ensure the fully rewritten resume uses ATS-friendly formatting (Simple headings, No tables or graphics, Clean structure, Standard section names).
+
+You MUST output your response in the EXACT JSON format specified by the responseSchema. Do NOT wrap the JSON in markdown blocks. Do NOT output raw text. 
+The 'fullyOptimizedResume' field should contain the fully rewritten resume text, formatted clearly.
 
 Resume Text:
 ${truncatedText}`;
@@ -52,12 +54,13 @@ ${truncatedText}`;
         body: JSON.stringify({
           contents: [{ parts: [{ text: prompt }] }],
           generationConfig: {
-            temperature: 0.2,
+            temperature: 0,
             responseMimeType: "application/json",
             responseSchema: {
               type: "OBJECT",
               properties: {
                 overallScore: { type: "INTEGER" },
+                improvedScore: { type: "INTEGER" },
                 categoryScores: {
                   type: "OBJECT",
                   properties: {
@@ -69,14 +72,12 @@ ${truncatedText}`;
                   required: ["clarity", "impact", "atsCompatibility", "structure"],
                 },
                 summary: { type: "STRING" },
-                strengths: {
-                  type: "ARRAY",
-                  items: { type: "STRING" },
-                },
-                weaknesses: {
-                  type: "ARRAY",
-                  items: { type: "STRING" },
-                },
+                strengths: { type: "ARRAY", items: { type: "STRING" } },
+                weaknesses: { type: "ARRAY", items: { type: "STRING" } },
+                missingKeywords: { type: "ARRAY", items: { type: "STRING" } },
+                improvementSuggestions: { type: "ARRAY", items: { type: "STRING" } },
+                summaryOfChanges: { type: "STRING" },
+                fullyOptimizedResume: { type: "STRING" },
                 rewrites: {
                   type: "ARRAY",
                   items: {
@@ -89,22 +90,21 @@ ${truncatedText}`;
                     required: ["original", "suggested", "reason"],
                   },
                 },
-                missingSections: {
-                  type: "ARRAY",
-                  items: { type: "STRING" },
-                },
+                missingSections: { type: "ARRAY", items: { type: "STRING" } },
                 industryFit: { type: "STRING" },
-                skillGap: {
-                  type: "ARRAY",
-                  items: { type: "STRING" },
-                },
+                skillGap: { type: "ARRAY", items: { type: "STRING" } },
               },
               required: [
                 "overallScore",
+                "improvedScore",
                 "categoryScores",
                 "summary",
                 "strengths",
                 "weaknesses",
+                "missingKeywords",
+                "improvementSuggestions",
+                "summaryOfChanges",
+                "fullyOptimizedResume",
                 "rewrites",
                 "industryFit",
                 "skillGap"

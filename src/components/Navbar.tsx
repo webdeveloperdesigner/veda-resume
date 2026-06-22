@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Bell, Menu, X, Star, Sun, Moon } from 'lucide-react';
 
 interface NavbarProps {
-  currentView: 'home' | 'changelog' | 'versions';
-  onNavigate: (view: 'home' | 'changelog' | 'versions') => void;
+  currentView: 'home' | 'changelog' | 'versions' | 'security';
+  onNavigate: (view: 'home' | 'changelog' | 'versions' | 'security') => void;
   onOpenPopup: () => void;
 }
 
@@ -29,7 +29,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
     }
   };
 
-  const handleNav = (view: 'home' | 'changelog' | 'versions') => {
+  const handleNav = (view: 'home' | 'changelog' | 'versions' | 'security') => {
     onNavigate(view);
     setIsMobileMenuOpen(false);
   };
@@ -78,6 +78,15 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               }`}
             >
               Versions
+            </button>
+
+            <button 
+              onClick={() => handleNav('security')}
+              className={`text-sm font-semibold transition-colors ${
+                currentView === 'security' ? 'text-black' : 'text-gray-500 hover:text-black'
+              }`}
+            >
+              Security
             </button>
 
             <button 
@@ -140,6 +149,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               <button onClick={() => handleNav('home')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'home' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Home</button>
               <button onClick={() => handleNav('changelog')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'changelog' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Changelog</button>
               <button onClick={() => handleNav('versions')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'versions' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Versions</button>
+              <button onClick={() => handleNav('security')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'security' ? 'bg-gray-100 text-black' : 'text-gray-600 hover:bg-gray-50'}`}>Security</button>
               
               <div className="h-px bg-gray-100 my-2" />
               

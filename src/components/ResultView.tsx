@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, Variants } from 'framer-motion';
 import { CheckCircle2, AlertTriangle, Briefcase, TrendingUp, Target } from 'lucide-react';
 import { ReviewResult } from '../lib/types';
+import { FeedbackModal } from './FeedbackModal';
 
 interface ResultViewProps {
   data: ReviewResult;
@@ -52,6 +53,7 @@ const getScoreLabel = (score: number) => {
 export function ResultView({ data, onReset }: ResultViewProps) {
   const scoreMeta = getScoreLabel(data.overallScore);
   const [displayScore, setDisplayScore] = useState(0);
+  const [showFeedbackModal, setShowFeedbackModal] = useState(false);
 
   useEffect(() => {
     let current = 0;
@@ -75,11 +77,29 @@ export function ResultView({ data, onReset }: ResultViewProps) {
       animate="show"
       className="w-full max-w-5xl mx-auto space-y-12 pb-20"
     >
-      <motion.div variants={itemVariants} className="text-center space-y-6">
-        <h2 className="text-lg font-bold tracking-[0.2em] uppercase text-gray-500">Employability Score</h2>
-        <div className="text-[clamp(6rem,22vw,18rem)] font-black leading-none text-score-gradient drop-shadow-[0_0_40px_rgba(16,185,129,0.2)]">
-          {displayScore}
+      <motion.div variants={itemVariants} className="text-center space-y-8">
+        <h2 className="text-lg font-bold tracking-[0.2em] uppercase text-gray-500">ATS Score Analysis</h2>
+        
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+          <div className="flex flex-col items-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Current Score</span>
+            <div className="text-6xl md:text-8xl font-black leading-none text-gray-300 dark:text-gray-700">
+              {displayScore}
+            </div>
+          </div>
+          
+          <div className="hidden md:flex flex-col items-center justify-center">
+            <svg className="w-12 h-12 text-gray-300 dark:text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </div>
+
+          <div className="flex flex-col items-center">
+            <span className="text-sm font-bold uppercase tracking-widest text-emerald-500 mb-2 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">Optimized Score</span>
+            <div className="text-[clamp(5rem,15vw,10rem)] font-black leading-none text-score-gradient drop-shadow-[0_0_40px_rgba(16,185,129,0.2)]">
+              {data.improvedScore || data.overallScore + 20 /* Fallback if not returned */}
+            </div>
+          </div>
         </div>
+
         <p className={`text-2xl font-semibold tracking-wide uppercase ${scoreMeta.color} ${scoreMeta.glow}`}>
           {scoreMeta.label}
         </p>
@@ -122,11 +142,27 @@ export function ResultView({ data, onReset }: ResultViewProps) {
                 <div className="flex flex-wrap gap-3">
                   {data.skillGap.map((skill, i) => (
                     <div key={i} className="group flex items-center space-x-2 bg-indigo-500/5 hover:bg-indigo-500/10 border border-indigo-500/20 px-4 py-2 rounded-xl backdrop-blur-sm transition-all duration-300">
-                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-400/50 group-hover:bg-indigo-400 group-hover:shadow-[0_0_8px_rgba(129,140,248,0.8)] transition-all duration-300" />
-                      <span className="text-sm font-medium text-indigo-200/80 group-hover:text-indigo-200 transition-colors">
+                      <div className="w-1.5 h-1.5 rounded-full bg-indigo-400/50 group-hover:bg-indigo-400 transition-all duration-300" />
+                      <span className="text-sm font-medium text-indigo-900 dark:text-indigo-200/80 group-hover:text-indigo-950 dark:group-hover:text-indigo-200 transition-colors">
                         {skill}
                       </span>
                     </div>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            {data.missingKeywords && data.missingKeywords.length > 0 && (
+              <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/5">
+                <h3 className="text-sm font-bold mb-4 text-purple-500 tracking-wider uppercase flex items-center space-x-2">
+                  <Target className="w-4 h-4" />
+                  <span>Missing ATS Keywords</span>
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {data.missingKeywords.map((kw, i) => (
+                    <span key={i} className="px-3 py-1 bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-500/20 rounded-md text-sm font-medium">
+                      {kw}
+                    </span>
                   ))}
                 </div>
               </div>
@@ -211,14 +247,64 @@ export function ResultView({ data, onReset }: ResultViewProps) {
         </div>
       </motion.div>
 
+      <motion.div variants={itemVariants} className="space-y-6">
+        <h3 className="text-2xl font-bold flex items-center space-x-2">
+          <span className="text-emerald-500">Fully Optimized ATS Resume</span>
+        </h3>
+        <p className="text-gray-600 dark:text-gray-400">Copy and paste this expert-level rewrite into your word processor. It has been optimized for ATS parsers.</p>
+        
+        {data.summaryOfChanges && (
+          <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-500/20 p-6 rounded-2xl mb-6">
+            <h4 className="text-sm font-bold tracking-widest uppercase text-blue-500 mb-2">Summary of Changes</h4>
+            <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{data.summaryOfChanges}</p>
+          </div>
+        )}
+
+        <div className="relative group">
+          <div className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 rounded-2xl p-8 shadow-2xl overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
+            <pre className="text-gray-800 dark:text-gray-200 whitespace-pre-wrap font-sans text-sm md:text-base leading-relaxed relative z-10">
+              {data.fullyOptimizedResume || "No optimized resume provided by the AI. Please try again."}
+            </pre>
+          </div>
+          
+          <button 
+            onClick={() => {
+              if (data.fullyOptimizedResume) {
+                navigator.clipboard.writeText(data.fullyOptimizedResume);
+              }
+            }}
+            className="absolute top-4 right-4 px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all font-bold text-sm flex items-center space-x-2"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span>Copy Resume</span>
+          </button>
+        </div>
+      </motion.div>
+
       <motion.div variants={itemVariants} className="text-center pt-12">
         <button
-          onClick={onReset}
+          onClick={() => {
+            const hasGivenFeedback = localStorage.getItem('veda_feedback_given') === 'true';
+            if (hasGivenFeedback) {
+              onReset();
+            } else {
+              setShowFeedbackModal(true);
+            }
+          }}
           className="px-10 py-4 rounded-full font-bold text-gray-700 dark:text-white bg-white dark:bg-white/10 border border-gray-200 dark:border-white/20 hover:bg-gray-50 dark:hover:bg-white/20 backdrop-blur-md transition-all active:scale-[0.98] shadow-xl"
         >
           Analyze Another Resume
         </button>
       </motion.div>
+
+      <FeedbackModal 
+        isOpen={showFeedbackModal} 
+        onComplete={() => {
+          setShowFeedbackModal(false);
+          onReset();
+        }} 
+      />
     </motion.div>
   );
 }

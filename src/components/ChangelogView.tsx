@@ -4,6 +4,19 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.8',
+    date: 'June 23, 2026',
+    title: 'Expert ATS AI Rewrite & Security Dashboard',
+    description: 'We have completely overhauled the Gemini API integration to act as a 15+ year expert ATS recruiter. Additionally, we introduced a transparent Security Center and improved the user feedback flow.',
+    changes: [
+      { type: 'feature', text: 'Lowered Gemini model temperature to 0.0 for highly deterministic, repeatable scoring.' },
+      { type: 'feature', text: 'Expanded JSON schema to return a fully optimized ATS resume rewrite and list of missing keywords.' },
+      { type: 'feature', text: 'Added a dedicated Security Center to track internal and external vulnerabilities (like CVE-2024-45296).' },
+      { type: 'ui', text: 'Redesigned ResultView to display Before & After scores and a Markdown container for the copied resume.' },
+      { type: 'ui', text: 'Integrated a Feedback Modal before allowing users to reset the analysis state.' }
+    ]
+  },
+  {
     version: 'v1.2.7',
     date: 'June 23, 2026',
     title: 'Security Patch & Light Mode Fixes',

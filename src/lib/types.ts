@@ -19,6 +19,11 @@ export interface ReviewResult {
   missingSections?: string[];
   industryFit?: string;
   skillGap?: string[];
+  missingKeywords: string[];
+  improvementSuggestions: string[];
+  fullyOptimizedResume: string;
+  improvedScore: number;
+  summaryOfChanges: string;
 }
 
 export type AppState = 'idle' | 'loading' | 'result' | 'error';

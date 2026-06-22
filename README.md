@@ -652,6 +652,9 @@ DEALINGS IN THE SOFTWARE.
 | **v1.2.3** | 2026-06-23 | Cinematic Dark Mode & System Theme Integration. |
 | **v1.2.4** | 2026-06-23 | System Theme Toggle & UI Refinements. |
 | **v1.2.5** | 2026-06-23 | Two-Step Upload Confirmation Flow. |
+| **v1.2.6** | 2026-06-23 | Navbar Clean Up & Code Stability. |
+| **v1.2.7** | 2026-06-23 | Security Patch (CVE-2024-45296) & Light Mode Fixes. |
+| **v1.2.8** | 2026-06-23 | Expert ATS AI Rewrite Integration & Feedback/Security Dashboards. |
 
 ---
 
