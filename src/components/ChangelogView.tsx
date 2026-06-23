@@ -4,6 +4,15 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.0',
+    date: 'June 24, 2026',
+    title: 'Localization Infrastructure (Phase 1)',
+    description: 'We have taken the first step towards VEDA Resume Global (India Edition) by installing the core internationalization framework (i18next).',
+    changes: [
+      { type: 'feature', text: 'Installed i18next, react-i18next, and i18next-browser-languagedetector.' }
+    ]
+  },
+  {
     version: 'v1.2.10',
     date: 'June 23, 2026',
     title: 'Security Patch & Deployment Hotfix',
