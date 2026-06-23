@@ -11,7 +11,7 @@ import { SecurityReportView } from './components/SecurityReportView';
 import { StatsBento } from './components/StatsBento';
 import { V2PreviewModal } from './components/V2PreviewModal';
 import { AppState, ReviewResult } from './lib/types';
-import { AlertCircle, Sparkles, Zap, Shield, Target, FileEdit, Clock } from 'lucide-react';
+import { AlertCircle, Sparkles, Zap, Shield } from 'lucide-react';
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
