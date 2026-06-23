@@ -3,6 +3,18 @@ import { ShieldAlert, ShieldCheck, Bug, Activity, ExternalLink } from 'lucide-re
 
 const reports = [
   {
+    internalId: 'VEDA-SEC-006',
+    externalId: 'CVE-2026-53571',
+    source: 'Dependabot',
+    date: 'June 23, 2026',
+    title: 'Vite server.fs.deny Bypass via Windows NTFS ADS',
+    description: 'Vite\'s dev server does not correctly normalize NTFS Alternate Data Streams (ADS) or 8.3 short names on Windows. This allows an attacker to bypass the `server.fs.deny` restrictions and access sensitive files like `.env` by requesting `/.env::$DATA`.',
+    status: 'Resolved',
+    severity: 'High',
+    impact: 'High confidentiality impact if the dev server is exposed to the network. Sensitive files in the allowed directories can be exposed.',
+    solution: 'Upgraded `vite` to version `6.4.3` via npm to correctly handle Windows ADS path resolution.'
+  },
+  {
     internalId: 'VEDA-SEC-005',
     externalId: 'CVE-2024-45296',
     source: 'Dependabot',
