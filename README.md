@@ -655,6 +655,8 @@ DEALINGS IN THE SOFTWARE.
 | **v1.2.6** | 2026-06-23 | Navbar Clean Up & Code Stability. |
 | **v1.2.7** | 2026-06-23 | Security Patch (CVE-2024-45296) & Light Mode Fixes. |
 | **v1.2.8** | 2026-06-23 | Expert ATS AI Rewrite Integration & Feedback/Security Dashboards. |
+| **v1.2.9** | 2026-06-23 | Real-Time Stats Dashboard & UI Enhancements. |
+| **v1.2.10** | 2026-06-23 | Security Patch & Deployment Hotfix. |
 
 ---
 
@@ -673,4 +675,4 @@ _Designed & Developed for the modern professional by VIVEK._
 
 ---
 
-_Generated on 2026‑06‑21 using the latest project specifications._
+_Generated on 2026‑06‑23 using the latest project specifications._

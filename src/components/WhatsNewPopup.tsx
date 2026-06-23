@@ -37,7 +37,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
-                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.9 Release</p>
+                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.2.10 Release</p>
                     </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
@@ -48,31 +48,31 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                 <div className="space-y-4">
                   <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                     <div className="bg-amber-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
-                      <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400" />
+                      <ShieldCheck className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Real-Time Stats Dashboard</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Added a dynamic Bento UI dashboard to track real-time API response time and analysis metrics.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Security Patch</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Upgraded Vite to resolve CVE-2026-53571 and updated the Security Center.</p>
                     </div>
                   </div>
                   
                   <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                     <div className="bg-blue-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
-                      <ShieldCheck className="w-4 h-4 text-blue-500 dark:text-blue-400" />
+                      <Zap className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Footer Privacy Badge</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Enhanced the global footer with a premium, highlighted privacy badge to reinforce zero-storage.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Deployment Hotfix</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Resolved strict TypeScript compilation errors to restore Vercel production builds.</p>
                     </div>
                   </div>
 
                   <div className="group flex items-start space-x-4 p-4 -mx-4 rounded-2xl hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                     <div className="bg-purple-500/10 p-2 rounded-lg mt-0.5 group-hover:scale-110 transition-transform">
-                      <Zap className="w-4 h-4 text-purple-500 dark:text-purple-400" />
+                      <Sparkles className="w-4 h-4 text-purple-500 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Loading Spinner Fixes</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Resolved a CSS rendering bug in the loading spinner to ensure perfect visibility in both themes.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Codebase Cleanup</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Removed orphaned imports and unused assets to guarantee a zero-warning environment.</p>
                     </div>
                   </div>
                 </div>

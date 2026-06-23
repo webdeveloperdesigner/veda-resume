@@ -4,6 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.2.10',
+    date: 'June 23, 2026',
+    title: 'Security Patch & Deployment Hotfix',
+    description: 'We have resolved a critical Vite vulnerability and fixed a strict TypeScript compilation error to restore our Vercel deployment pipeline.',
+    changes: [
+      { type: 'bugfix', text: 'Cleaned up orphaned lucide-react imports in App.tsx to resolve TS6133 build failures on Vercel.' },
+      { type: 'bugfix', text: 'Upgraded Vite to v6.4.3 to resolve CVE-2026-53571 (server.fs.deny bypass on Windows).' },
+      { type: 'ui', text: 'Updated the Security Center dashboard to mark VEDA-SEC-006 as fully resolved.' }
+    ]
+  },
+  {
     version: 'v1.2.9',
     date: 'June 23, 2026',
     title: 'Real-Time Stats Dashboard & UI Enhancements',
