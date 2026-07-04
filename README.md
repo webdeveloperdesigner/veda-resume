@@ -661,6 +661,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.3.1**  | 2026-07-04 | Cinematic App Boot & Loading Experience.                                        |
 | **v1.3.2**  | 2026-07-04 | i18n Engine Initialization.                                                     |
 | **v1.3.3**  | 2026-07-04 | English Localized Dictionary Core.                                              |
+| **v1.3.4**  | 2026-07-04 | Hero & Footer String Extraction.                                                |
 
 ---
 

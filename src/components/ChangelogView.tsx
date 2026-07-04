@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.4',
+    date: 'July 04, 2026',
+    title: 'Hero & Footer String Extraction',
+    description: 'We have begun the massive UI text extraction process, successfully migrating the main App.tsx Hero and Footer strings into our i18next translation dictionary.',
+    changes: [
+      { type: 'feature', text: 'Extracted Hero titles, subtitles, and badges into en.json.' },
+      { type: 'feature', text: 'Replaced hardcoded English text in App.tsx with dynamic useTranslation hooks.' }
+    ]
+  },
+  {
     version: 'v1.3.3',
     date: 'July 04, 2026',
     title: 'English Localized Dictionary Core',

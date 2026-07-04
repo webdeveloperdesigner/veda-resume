@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { UploadZone } from './components/UploadZone';
 import { LoadingState } from './components/LoadingState';
@@ -30,6 +31,7 @@ const itemVariants: Variants = {
 };
 
 function App() {
+  const { t } = useTranslation();
   const [appState, setAppState] = useState<AppState>('idle');
   const [isBooting, setIsBooting] = useState(true);
   const [result, setResult] = useState<ReviewResult | null>(null);
@@ -129,11 +131,11 @@ function App() {
                 className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-purple-500/10 hover:bg-purple-500/20 border border-purple-500/20 transition-colors cursor-pointer group"
               >
                 <Zap className="w-4 h-4 text-purple-400 group-hover:scale-110 transition-transform" />
-                <span className="text-xs font-bold text-purple-400 tracking-widest uppercase animate-pulse">V2 Coming Soon</span>
+                <span className="text-xs font-bold text-purple-400 tracking-widest uppercase animate-pulse">{t('hero.badges.v2_coming_soon')}</span>
               </motion.button>
               <motion.div variants={itemVariants} className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
                 <Sparkles className="w-4 h-4 text-emerald-400" />
-                <span className="text-xs font-bold text-emerald-400 tracking-widest uppercase">Powered by Gemini</span>
+                <span className="text-xs font-bold text-emerald-400 tracking-widest uppercase">{t('hero.badges.powered_by_gemini')}</span>
               </motion.div>
               <motion.a 
                 href="https://bodhai.pages.dev"
@@ -142,20 +144,20 @@ function App() {
                 variants={itemVariants} 
                 className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 hover:bg-blue-500/20 transition-colors"
               >
-                <span className="text-xs font-bold text-blue-400 tracking-widest uppercase">Co-powered by BodhAI</span>
+                <span className="text-xs font-bold text-blue-400 tracking-widest uppercase">{t('hero.badges.powered_by_bodhai')}</span>
               </motion.a>
             </div>
             <motion.h1 
               variants={itemVariants}
               className="text-4xl md:text-6xl font-black tracking-tight hero-heading drop-shadow-lg"
             >
-              AI-powered resume analysis<br />for smarter careers.
+              {t('hero.title_line1')}<br />{t('hero.title_line2')}
             </motion.h1>
             <motion.p 
               variants={itemVariants}
               className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed"
             >
-              Virtual Employability & Document Analyzer (VEDA) deeply evaluates your career profile using knowledge-driven insights. Drop your resume to uncover skill gaps, industry fit, and actionable improvements.
+              {t('hero.subtitle')}
             </motion.p>
           </motion.div>
         )}
@@ -213,13 +215,13 @@ function App() {
       {/* Global Footer */}
       <footer className="w-full border-t border-gray-100 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-md py-8 text-center mt-auto">
         <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
-          <p>© 2026 VEDA Resume Analysis.</p>
+          <p>{t('footer.copyright')}</p>
           <span className="hidden md:inline">•</span>
-          <p>Powered by Google Gemini.</p>
+          <p>{t('footer.powered')}</p>
           <span className="hidden md:inline">•</span>
           <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-semibold shadow-sm">
             <Shield className="w-3.5 h-3.5" />
-            <span>Zero Data Stored</span>
+            <span>{t('footer.zero_data')}</span>
           </div>
         </div>
       </footer>

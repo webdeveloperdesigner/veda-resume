@@ -1,4 +1,19 @@
 {
+  "hero": {
+    "badges": {
+      "v2_coming_soon": "V2 Coming Soon",
+      "powered_by_gemini": "Powered by Gemini",
+      "powered_by_bodhai": "Co-powered by BodhAI"
+    },
+    "title_line1": "AI-powered resume analysis",
+    "title_line2": "for smarter careers.",
+    "subtitle": "Virtual Employability & Document Analyzer (VEDA) deeply evaluates your career profile using knowledge-driven insights. Drop your resume to uncover skill gaps, industry fit, and actionable improvements."
+  },
+  "footer": {
+    "copyright": "© 2026 VEDA Resume Analysis.",
+    "powered": "Powered by Google Gemini.",
+    "zero_data": "Zero Data Stored"
+  },
   "common": {
     "loading": "Loading..."
   }
