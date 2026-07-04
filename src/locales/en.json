@@ -63,6 +63,21 @@
       "strengths": "Key Strengths",
       "weaknesses": "Critical Weaknesses",
       "analyze_another": "Analyze Another Resume"
+    },
+    "rewrites": {
+      "title": "Smart Rewrites",
+      "subtitle": "Before and after comparisons to maximize impact.",
+      "original": "Original",
+      "suggested": "Suggested",
+      "copy_tooltip": "Copy to clipboard",
+      "why": "WHY: "
+    },
+    "optimized": {
+      "title": "Fully Optimized ATS Resume",
+      "subtitle": "Copy and paste this expert-level rewrite into your word processor. It has been optimized for ATS parsers.",
+      "summary_title": "Summary of Changes",
+      "fallback_text": "No optimized resume provided by the AI. Please try again.",
+      "copy_btn": "Copy Resume"
     }
   },
   "nav": {

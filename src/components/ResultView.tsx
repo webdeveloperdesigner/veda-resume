@@ -209,9 +209,9 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
 
       <motion.div variants={itemVariants} className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center space-x-2">
-          <span className="text-teal-400">Smart Rewrites</span>
+          <span className="text-teal-400">{t('result.rewrites.title')}</span>
         </h3>
-        <p className="text-gray-600 dark:text-gray-400">Before and after comparisons to maximize impact.</p>
+        <p className="text-gray-600 dark:text-gray-400">{t('result.rewrites.subtitle')}</p>
         <div className="space-y-6">
           {data.rewrites.map((rw, i) => (
             <motion.div 
@@ -224,11 +224,11 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-500 mb-3 opacity-80">Original</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-amber-500 mb-3 opacity-80">{t('result.rewrites.original')}</h4>
                   <p className="text-gray-500 dark:text-gray-400/80 line-through decoration-amber-500/30 leading-relaxed">{rw.original}</p>
                 </div>
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">Suggested</h4>
+                  <h4 className="text-xs font-bold uppercase tracking-widest text-emerald-500 mb-3 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">{t('result.rewrites.suggested')}</h4>
                   <div className="relative group">
                     <p className="text-gray-800 dark:text-gray-100 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/30 p-4 rounded-xl leading-relaxed shadow-[0_0_20px_rgba(16,185,129,0.05)]">
                       {rw.suggested}
@@ -236,7 +236,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
                     <button 
                       onClick={() => navigator.clipboard.writeText(rw.suggested)}
                       className="absolute top-2 right-2 p-2 bg-emerald-500/20 rounded-lg text-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-emerald-500/40"
-                      title="Copy to clipboard"
+                      title={t('result.rewrites.copy_tooltip')}
                     >
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                     </button>
@@ -244,7 +244,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
                 </div>
               </div>
               <div className="mt-5 pt-5 border-t border-gray-200 dark:border-white/10">
-                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"><strong className="text-gray-800 dark:text-gray-300 tracking-wide">WHY: </strong>{rw.reason}</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed"><strong className="text-gray-800 dark:text-gray-300 tracking-wide">{t('result.rewrites.why')}</strong>{rw.reason}</p>
               </div>
             </motion.div>
           ))}
@@ -253,13 +253,13 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
 
       <motion.div variants={itemVariants} className="space-y-6">
         <h3 className="text-2xl font-bold flex items-center space-x-2">
-          <span className="text-emerald-500">Fully Optimized ATS Resume</span>
+          <span className="text-emerald-500">{t('result.optimized.title')}</span>
         </h3>
-        <p className="text-gray-600 dark:text-gray-400">Copy and paste this expert-level rewrite into your word processor. It has been optimized for ATS parsers.</p>
+        <p className="text-gray-600 dark:text-gray-400">{t('result.optimized.subtitle')}</p>
         
         {data.summaryOfChanges && (
           <div className="bg-blue-50 dark:bg-blue-900/10 border border-blue-200 dark:border-blue-500/20 p-6 rounded-2xl mb-6">
-            <h4 className="text-sm font-bold tracking-widest uppercase text-blue-500 mb-2">Summary of Changes</h4>
+            <h4 className="text-sm font-bold tracking-widest uppercase text-blue-500 mb-2">{t('result.optimized.summary_title')}</h4>
             <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{data.summaryOfChanges}</p>
           </div>
         )}
@@ -268,7 +268,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
           <div className="bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 rounded-2xl p-8 shadow-2xl overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 rounded-full blur-[100px] pointer-events-none" />
             <pre className="text-gray-800 dark:text-gray-200 whitespace-pre-wrap font-sans text-sm md:text-base leading-relaxed relative z-10">
-              {data.fullyOptimizedResume || "No optimized resume provided by the AI. Please try again."}
+              {data.fullyOptimizedResume || t('result.optimized.fallback_text')}
             </pre>
           </div>
           
@@ -281,7 +281,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
             className="absolute top-4 right-4 px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-white rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all font-bold text-sm flex items-center space-x-2"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-            <span>Copy Resume</span>
+            <span>{t('result.optimized.copy_btn')}</span>
           </button>
         </div>
       </motion.div>

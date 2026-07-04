@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.10',
+    date: 'July 04, 2026',
+    title: 'ResultView Complex String Extraction',
+    description: 'We officially concluded Phase 1 of our Localization Roadmap by extracting the remaining complex string templates, nested tooltips, and dynamic rewrite comparisons from the Result Dashboard.',
+    changes: [
+      { type: 'feature', text: 'Extracted Smart Rewrites section text, copy button tooltips, and fallback text into en.json.' },
+      { type: 'feature', text: 'Replaced hardcoded English text in ResultView.tsx with dynamic useTranslation hooks.' }
+    ]
+  },
+  {
     version: 'v1.3.9',
     date: 'July 04, 2026',
     title: 'ResultView Basic Label Extraction',
