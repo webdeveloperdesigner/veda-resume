@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.3.5', date: 'July 04, 2026', title: 'Navbar Navigation String Extraction' },
   { version: 'v1.3.4', date: 'July 04, 2026', title: 'Hero & Footer String Extraction' },
   { version: 'v1.3.3', date: 'July 04, 2026', title: 'English Localized Dictionary Core' },
   { version: 'v1.3.2', date: 'July 04, 2026', title: 'i18n Engine Initialization' },

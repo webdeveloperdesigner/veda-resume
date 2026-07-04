@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.5',
+    date: 'July 04, 2026',
+    title: 'Navbar Navigation String Extraction',
+    description: 'We continued the UI text extraction process by completely localizing the navigation bar, ensuring smooth translation of all links, tooltips, and mobile menus.',
+    changes: [
+      { type: 'feature', text: 'Extracted Navbar links, tooltips, and action buttons into en.json.' },
+      { type: 'feature', text: 'Replaced hardcoded English text in Navbar.tsx with dynamic useTranslation hooks.' }
+    ]
+  },
+  {
     version: 'v1.3.4',
     date: 'July 04, 2026',
     title: 'Hero & Footer String Extraction',

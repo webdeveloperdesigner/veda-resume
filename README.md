@@ -662,6 +662,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.3.2**  | 2026-07-04 | i18n Engine Initialization.                                                     |
 | **v1.3.3**  | 2026-07-04 | English Localized Dictionary Core.                                              |
 | **v1.3.4**  | 2026-07-04 | Hero & Footer String Extraction.                                                |
+| **v1.3.5**  | 2026-07-04 | Navbar Navigation String Extraction.                                            |
 
 ---
 

@@ -9,6 +9,18 @@
     "title_line2": "for smarter careers.",
     "subtitle": "Virtual Employability & Document Analyzer (VEDA) deeply evaluates your career profile using knowledge-driven insights. Drop your resume to uncover skill gaps, industry fit, and actionable improvements."
   },
+  "nav": {
+    "home": "Home",
+    "changelog": "Changelog",
+    "versions": "Versions",
+    "security": "Security",
+    "updates": "Updates",
+    "feedback": "Feedback",
+    "star": "Star Us",
+    "star_github": "Star us on GitHub!",
+    "star_title": "Give us a star if it's good!",
+    "toggle_theme": "Toggle Theme"
+  },
   "footer": {
     "copyright": "© 2026 VEDA Resume Analysis.",
     "powered": "Powered by Google Gemini.",

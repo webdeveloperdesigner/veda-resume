@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bell, Menu, X, Star, Sun, Moon } from 'lucide-react';
 
@@ -9,6 +10,7 @@ interface NavbarProps {
 }
 
 export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
+  const { t } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
@@ -58,7 +60,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                 currentView === 'home' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
-              Home
+              {t('nav.home')}
             </button>
             
             <button 
@@ -67,7 +69,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                 currentView === 'changelog' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
-              Changelog
+              {t('nav.changelog')}
             </button>
 
             <button 
@@ -76,7 +78,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                 currentView === 'versions' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
-              Versions
+              {t('nav.versions')}
             </button>
 
             <button 
@@ -85,7 +87,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                 currentView === 'security' ? 'text-gray-900 dark:text-white' : 'text-gray-500 hover:text-gray-900 dark:hover:text-white'
               }`}
             >
-              Security
+              {t('nav.security')}
             </button>
 
             <button 
@@ -93,7 +95,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               <Bell className="w-4 h-4" />
-              <span>Updates</span>
+              <span>{t('nav.updates')}</span>
             </button>
 
             <a 
@@ -102,7 +104,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               rel="noopener noreferrer"
               className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
-              <span>Feedback</span>
+              <span>{t('nav.feedback')}</span>
             </a>
 
             <a 
@@ -110,10 +112,10 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center space-x-1.5 text-sm font-semibold text-gray-500 hover:text-gray-900 dark:hover:text-white transition-colors"
-              title="Give us a star if it's good!"
+              title={t('nav.star_title')}
             >
               <Star className="w-4 h-4" />
-              <span>Star Us</span>
+              <span>{t('nav.star')}</span>
             </a>
           </div>
 
@@ -122,7 +124,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
             <button
               onClick={toggleTheme}
               className="p-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
-              title="Toggle Theme"
+              title={t('nav.toggle_theme')}
             >
               {isDark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
             </button>
@@ -145,25 +147,25 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
               transition={{ duration: 0.2 }}
               className="absolute top-16 left-0 right-0 bg-white dark:bg-[#1a1a1a] rounded-3xl shadow-2xl p-4 flex flex-col space-y-2 pointer-events-auto z-40 lg:hidden border border-gray-100 dark:border-white/10"
             >
-              <button onClick={() => handleNav('home')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'home' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Home</button>
-              <button onClick={() => handleNav('changelog')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'changelog' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Changelog</button>
-              <button onClick={() => handleNav('versions')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'versions' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Versions</button>
-              <button onClick={() => handleNav('security')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'security' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>Security</button>
+              <button onClick={() => handleNav('home')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'home' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>{t('nav.home')}</button>
+              <button onClick={() => handleNav('changelog')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'changelog' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>{t('nav.changelog')}</button>
+              <button onClick={() => handleNav('versions')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'versions' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>{t('nav.versions')}</button>
+              <button onClick={() => handleNav('security')} className={`p-3 rounded-xl font-semibold text-left transition-colors ${currentView === 'security' ? 'bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white' : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5'}`}>{t('nav.security')}</button>
               
               <div className="h-px bg-gray-100 dark:bg-white/10 my-2" />
               
               <button onClick={() => { onOpenPopup(); setIsMobileMenuOpen(false); }} className="p-3 rounded-xl font-semibold text-left text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center space-x-2">
                 <Bell className="w-5 h-5" />
-                <span>Updates</span>
+                <span>{t('nav.updates')}</span>
               </button>
               
               <a href="https://survey.bodhai.pages.dev/survey/veda-resume-feedback-survey" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl font-semibold text-left text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center space-x-2">
-                <span>Feedback</span>
+                <span>{t('nav.feedback')}</span>
               </a>
 
               <a href="https://github.com/webdeveloperdesigner/veda-resume" target="_blank" rel="noopener noreferrer" className="p-3 rounded-xl font-semibold text-left text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-white/5 flex items-center space-x-2">
                 <Star className="w-5 h-5" />
-                <span>Star us on GitHub!</span>
+                <span>{t('nav.star_github')}</span>
               </a>
             </motion.div>
           )}
