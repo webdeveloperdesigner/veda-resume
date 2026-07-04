@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.2',
+    date: 'July 04, 2026',
+    title: 'i18n Engine Initialization',
+    description: 'We have configured the core i18next engine and initialized it within the React component tree.',
+    changes: [
+      { type: 'feature', text: 'Created the central i18n.ts configuration to handle browser language detection.' },
+      { type: 'feature', text: 'Integrated the i18next instance globally inside main.tsx.' }
+    ]
+  },
+  {
     version: 'v1.3.1',
     date: 'July 04, 2026',
     title: 'Cinematic App Boot & Loading Experience',

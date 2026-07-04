@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.3.2', date: 'July 04, 2026', title: 'i18n Engine Initialization' },
   { version: 'v1.3.1', date: 'July 04, 2026', title: 'Cinematic App Boot & Loading Experience' },
   { version: 'v1.3.0', date: 'June 24, 2026', title: 'Localization Infrastructure (Phase 1)' },
   { version: 'v1.2.10', date: 'June 23, 2026', title: 'Security Patch & Deployment Hotfix' },
