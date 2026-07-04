@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.6',
+    date: 'July 04, 2026',
+    title: 'UploadZone Text Extraction',
+    description: 'We continued the UI text extraction process by completely localizing the file drop instructions, tabs, and action buttons in the UploadZone component.',
+    changes: [
+      { type: 'feature', text: 'Extracted UploadZone tabs, file drop instructions, and character count templates into en.json.' },
+      { type: 'feature', text: 'Replaced hardcoded English text in UploadZone.tsx with dynamic useTranslation hooks.' }
+    ]
+  },
+  {
     version: 'v1.3.5',
     date: 'July 04, 2026',
     title: 'Navbar Navigation String Extraction',

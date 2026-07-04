@@ -9,6 +9,26 @@
     "title_line2": "for smarter careers.",
     "subtitle": "Virtual Employability & Document Analyzer (VEDA) deeply evaluates your career profile using knowledge-driven insights. Drop your resume to uncover skill gaps, industry fit, and actionable improvements."
   },
+  "upload": {
+    "tabs": {
+      "pdf": "Upload PDF",
+      "text": "Paste Text"
+    },
+    "role_label": "Target Role (Optional)",
+    "role_placeholder": "e.g. Senior Frontend Developer",
+    "dropzone": {
+      "title": "Drop your resume PDF here, or click to browse",
+      "subtitle": "PDF only · max 10 MB · text is never stored",
+      "reading": "Reading PDF...",
+      "replace": "Replace File",
+      "characters_extracted": "{{count}} characters extracted · click to replace"
+    },
+    "text_paste": {
+      "placeholder": "Paste your resume text here...",
+      "characters": "{{count}} characters"
+    },
+    "submit": "Review My Resume"
+  },
   "nav": {
     "home": "Home",
     "changelog": "Changelog",

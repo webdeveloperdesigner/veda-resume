@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, Variants } from 'framer-motion';
 import { AlertCircle } from 'lucide-react';
 import { extractTextFromPDF } from '../lib/pdfExtract';
@@ -24,6 +25,7 @@ const itemVariants: Variants = {
 };
 
 export function UploadZone({ onProcessText }: UploadZoneProps) {
+  const { t } = useTranslation();
   const [isDragging, setIsDragging] = useState(false);
   const [mode, setMode] = useState<'pdf' | 'text'>('pdf');
   const [textInput, setTextInput] = useState('');
@@ -114,7 +116,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
             mode === 'pdf' ? 'bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white backdrop-blur-sm border border-gray-300 dark:border-white/10 shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
           }`}
         >
-          Upload PDF
+          {t('upload.tabs.pdf')}
         </button>
         <button
           onClick={() => setMode('text')}
@@ -122,7 +124,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
             mode === 'text' ? 'bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white backdrop-blur-sm border border-gray-300 dark:border-white/10 shadow-lg' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/5'
           }`}
         >
-          Paste Text
+          {t('upload.tabs.text')}
         </button>
       </motion.div>
 
@@ -134,12 +136,12 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
 
           <div className="relative z-10">
             <div className="mb-6">
-              <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">Target Role (Optional)</label>
+              <label className="block text-sm font-medium text-gray-600 dark:text-gray-400 mb-2">{t('upload.role_label')}</label>
               <input 
                 type="text" 
                 value={targetRole}
                 onChange={(e) => setTargetRole(e.target.value)}
-                placeholder="e.g. Senior Frontend Developer"
+                placeholder={t('upload.role_placeholder')}
                 className="w-full bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-3 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all shadow-inner"
               />
             </div>
@@ -163,7 +165,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
                       <div className="w-8 h-1 bg-gray-400 rounded"></div>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{selectedFile.name}</h3>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">{extractedPdfText.length.toLocaleString()} characters extracted · click to replace</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mb-6">{t('upload.dropzone.characters_extracted', { count: extractedPdfText.length.toLocaleString() })}</p>
                     <label className="cursor-pointer text-emerald-500 hover:text-emerald-400 font-medium text-sm transition-colors">
                       <input 
                         type="file" 
@@ -172,7 +174,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
                         onChange={handleFileChange} 
                         disabled={isProcessingFile}
                       />
-                      Replace File
+                      {t('upload.dropzone.replace')}
                     </label>
                   </div>
                 ) : (
@@ -184,8 +186,8 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
                         <path d="m8 16 4-4 4 4"></path>
                       </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Drop your resume PDF here, or click to browse</h3>
-                    <p className="text-gray-500 dark:text-gray-400 mb-6 text-sm font-medium">PDF only · max 10 MB · text is never stored</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">{t('upload.dropzone.title')}</h3>
+                    <p className="text-gray-500 dark:text-gray-400 mb-6 text-sm font-medium">{t('upload.dropzone.subtitle')}</p>
                     
                     <label className="cursor-pointer absolute inset-0 w-full h-full opacity-0">
                       <input 
@@ -196,7 +198,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
                         disabled={isProcessingFile}
                       />
                     </label>
-                    {isProcessingFile && <p className="text-emerald-500 font-medium mt-4">Reading PDF...</p>}
+                    {isProcessingFile && <p className="text-emerald-500 font-medium mt-4">{t('upload.dropzone.reading')}</p>}
                   </>
                 )}
               </div>
@@ -204,13 +206,13 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
               <div className="space-y-4">
                 <textarea
                   className="w-full h-64 bg-gray-50 dark:bg-black/40 border border-gray-200 dark:border-white/10 rounded-xl p-4 text-gray-900 dark:text-gray-200 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all resize-none shadow-inner"
-                  placeholder="Paste your resume text here..."
+                  placeholder={t('upload.text_paste.placeholder')}
                   value={textInput}
                   onChange={(e) => setTextInput(e.target.value)}
                 />
                 <div className="flex justify-between items-center">
                   <span className="text-sm text-gray-500 font-medium">
-                    {textInput.length.toLocaleString()} characters
+                    {t('upload.text_paste.characters', { count: textInput.length.toLocaleString() })}
                   </span>
                 </div>
               </div>
@@ -237,7 +239,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/>
             </svg>
-            <span>Review My Resume</span>
+            <span>{t('upload.submit')}</span>
           </span>
           <div className="absolute inset-0 bg-white/20 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300 ease-out" />
         </button>
