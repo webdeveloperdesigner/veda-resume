@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.3',
+    date: 'July 04, 2026',
+    title: 'English Localized Dictionary Core',
+    description: 'We have established the core translation dictionary file for English, laying the foundation for all future regional Indian languages.',
+    changes: [
+      { type: 'feature', text: 'Created the initial en.json dictionary in src/locales/en.json.' },
+      { type: 'feature', text: 'Wired up the English dictionary to the central i18next configuration.' }
+    ]
+  },
+  {
     version: 'v1.3.2',
     date: 'July 04, 2026',
     title: 'i18n Engine Initialization',

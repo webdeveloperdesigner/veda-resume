@@ -518,13 +518,13 @@ test("throws PDF_NO_TEXT for tiny PDFs", async () => {
 
 ## 📈 Roadmap & Future Enhancements
 
-| Milestone | Target Release | Description                                                       |
-| --------- | -------------- | ----------------------------------------------------------------- |
-| **v1.0**  | July 2026      | Initial release – core parsing, Gemini integration, cinematic UI. |
+| Milestone | Target Release | Description                                                         |
+| --------- | -------------- | ------------------------------------------------------------------- |
+| **v1.0**  | July 2026      | Initial release – core parsing, Gemini integration, cinematic UI.   |
 | **v2.0**  | July 2026      | Multi‑language support (English + Major Indian Regional Languages). |
-| **v3.0**  | July 2026      | Integrate Google Jobs API for auto‑suggested job postings.        |
-| **v4.0**  | Q4 2026        | Real‑time collaborative resume editing (WebSocket).               |
-| **v5.0**  | Q4 2026        | Export results as PDF/HTML report with branding.                  |
+| **v3.0**  | July 2026      | Integrate Google Jobs API for auto‑suggested job postings.          |
+| **v4.0**  | Q4 2026        | Real‑time collaborative resume editing (WebSocket).                 |
+| **v5.0**  | Q4 2026        | Export results as PDF/HTML report with branding.                    |
 
 ---
 
@@ -640,24 +640,27 @@ DEALINGS IN THE SOFTWARE.
 
 ## 🗂️ Change Log
 
-| Version    | Date       | Highlights                                                                      |
-| ---------- | ---------- | ------------------------------------------------------------------------------- |
-| **v1.0.0** | 2026-06-10 | Initial release – core parsing, Gemini 2.5 Flash integration, cinematic UI.     |
-| **v1.1.0** | 2026-06-20 | Added Target Role input, "Fix It For Me" clipboard copy, and What's New popup.  |
-| **v1.1.1** | 2026-06-21 | Codebase stability, strict TypeScript catches, and zero-warning builds.         |
-| **v1.1.2** | 2026-06-21 | SEO meta tags optimization, custom favicon, and "Powered by Gemini" branding.   |
-| **v1.2.0** | 2026-06-21 | Major UI overhaul: Floating Navbar, Updates Modal, and Dedicated Versions Page. |
-| **v1.2.1** | 2026-06-21 | Navbar TypeScript Fixes. |
-| **v1.2.2** | 2026-06-21 | Mobile Navigation & Feedback Integration. |
-| **v1.2.3** | 2026-06-23 | Cinematic Dark Mode & System Theme Integration. |
-| **v1.2.4** | 2026-06-23 | System Theme Toggle & UI Refinements. |
-| **v1.2.5** | 2026-06-23 | Two-Step Upload Confirmation Flow. |
-| **v1.2.6** | 2026-06-23 | Navbar Clean Up & Code Stability. |
-| **v1.2.7** | 2026-06-23 | Security Patch (CVE-2024-45296) & Light Mode Fixes. |
-| **v1.2.8** | 2026-06-23 | Expert ATS AI Rewrite Integration & Feedback/Security Dashboards. |
-| **v1.2.9** | 2026-06-23 | Real-Time Stats Dashboard & UI Enhancements. |
-| **v1.2.10** | 2026-06-23 | Security Patch & Deployment Hotfix. |
-| **v1.2.11** | 2026-07-04 | Cinematic App Boot & Loading Experience. |
+| Version     | Date       | Highlights                                                                      |
+| ----------- | ---------- | ------------------------------------------------------------------------------- |
+| **v1.0.0**  | 2026-06-10 | Initial release – core parsing, Gemini 2.5 Flash integration, cinematic UI.     |
+| **v1.1.0**  | 2026-06-20 | Added Target Role input, "Fix It For Me" clipboard copy, and What's New popup.  |
+| **v1.1.1**  | 2026-06-21 | Codebase stability, strict TypeScript catches, and zero-warning builds.         |
+| **v1.1.2**  | 2026-06-21 | SEO meta tags optimization, custom favicon, and "Powered by Gemini" branding.   |
+| **v1.2.0**  | 2026-06-21 | Major UI overhaul: Floating Navbar, Updates Modal, and Dedicated Versions Page. |
+| **v1.2.1**  | 2026-06-21 | Navbar TypeScript Fixes.                                                        |
+| **v1.2.2**  | 2026-06-21 | Mobile Navigation & Feedback Integration.                                       |
+| **v1.2.3**  | 2026-06-23 | Cinematic Dark Mode & System Theme Integration.                                 |
+| **v1.2.4**  | 2026-06-23 | System Theme Toggle & UI Refinements.                                           |
+| **v1.2.5**  | 2026-06-23 | Two-Step Upload Confirmation Flow.                                              |
+| **v1.2.6**  | 2026-06-23 | Navbar Clean Up & Code Stability.                                               |
+| **v1.2.7**  | 2026-06-23 | Security Patch (CVE-2024-45296) & Light Mode Fixes.                             |
+| **v1.2.8**  | 2026-06-23 | Expert ATS AI Rewrite Integration & Feedback/Security Dashboards.               |
+| **v1.2.9**  | 2026-06-23 | Real-Time Stats Dashboard & UI Enhancements.                                    |
+| **v1.2.10** | 2026-06-23 | Security Patch & Deployment Hotfix.                                             |
+| **v1.3.0**  | 2026-06-24 | Localization Infrastructure (Phase 1).                                          |
+| **v1.3.1**  | 2026-07-04 | Cinematic App Boot & Loading Experience.                                        |
+| **v1.3.2**  | 2026-07-04 | i18n Engine Initialization.                                                     |
+| **v1.3.3**  | 2026-07-04 | English Localized Dictionary Core.                                              |
 
 ---
 
