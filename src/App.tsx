@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { UploadZone } from './components/UploadZone';
 import { LoadingState } from './components/LoadingState';
 import { ResultView } from './components/ResultView';
@@ -10,6 +10,7 @@ import { VersionsView } from './components/VersionsView';
 import { SecurityReportView } from './components/SecurityReportView';
 import { StatsBento } from './components/StatsBento';
 import { V2PreviewModal } from './components/V2PreviewModal';
+import { InitialSplash } from './components/InitialSplash';
 import { AppState, ReviewResult } from './lib/types';
 import { AlertCircle, Sparkles, Zap, Shield } from 'lucide-react';
 
@@ -30,7 +31,9 @@ const itemVariants: Variants = {
 
 function App() {
   const [appState, setAppState] = useState<AppState>('idle');
+  const [isBooting, setIsBooting] = useState(true);
   const [result, setResult] = useState<ReviewResult | null>(null);
+  const [isFinishing, setIsFinishing] = useState(false);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [currentView, setCurrentView] = useState<'home' | 'changelog' | 'versions' | 'security'>('home');
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -70,7 +73,8 @@ function App() {
       setAnalysisTime(((endTime - startTime) / 1000).toFixed(1));
       
       setResult(data);
-      setAppState('result');
+      setIsFinishing(true);
+      // Wait for LoadingState to call onComplete before setting appState to 'result'
     } catch (err: unknown) {
       const error = err as Error;
       console.error(error);
@@ -81,6 +85,7 @@ function App() {
 
   const handleReset = () => {
     setResult(null);
+    setIsFinishing(false);
     setAppState('idle');
     setErrorMsg(null);
   };
@@ -163,7 +168,15 @@ function App() {
           </div>
         )}
         
-        {appState === 'loading' && <LoadingState />}
+        {appState === 'loading' && (
+          <LoadingState 
+            isFinishing={isFinishing} 
+            onComplete={() => {
+              setIsFinishing(false);
+              setAppState('result');
+            }} 
+          />
+        )}
         
         {appState === 'result' && result && (
           <ResultView data={result} onReset={handleReset} analysisTime={analysisTime} />
@@ -198,15 +211,32 @@ function App() {
       )}
 
       {/* Global Footer */}
-      <footer className="w-full text-center py-8 mt-auto border-t border-gray-200 dark:border-white/5 bg-gray-100/50 dark:bg-black/20">
-        <p className="text-sm text-gray-600 dark:text-gray-500 mb-4">
-          © {new Date().getFullYear()} VEDA Resume. <a href="https://bodhai.pages.dev" target="_blank" rel="noopener noreferrer" className="text-gray-500 hover:text-emerald-500 dark:text-gray-400 dark:hover:text-emerald-400 transition-colors font-medium">Co-powered by BodhAI</a>.
-        </p>
-        <div className="inline-flex items-center justify-center space-x-2 px-4 py-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 rounded-full text-xs font-bold tracking-wide shadow-sm backdrop-blur-sm">
-          <Shield className="w-4 h-4" />
-          <span>Your resume is processed in real time and never stored.</span>
+      <footer className="w-full border-t border-gray-100 dark:border-white/5 bg-white/50 dark:bg-black/20 backdrop-blur-md py-8 text-center mt-auto">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+          <p>© 2026 VEDA Resume Analysis.</p>
+          <span className="hidden md:inline">•</span>
+          <p>Powered by Google Gemini.</p>
+          <span className="hidden md:inline">•</span>
+          <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 text-emerald-700 dark:text-emerald-400 font-semibold shadow-sm">
+            <Shield className="w-3.5 h-3.5" />
+            <span>Zero Data Stored</span>
+          </div>
         </div>
       </footer>
+      
+      {/* Initial App Splash Screen Overlay */}
+      <AnimatePresence>
+        {isBooting && (
+          <motion.div
+            key="splash"
+            exit={{ opacity: 0, filter: "blur(10px)" }}
+            transition={{ duration: 1, ease: "easeInOut" }}
+            className="fixed inset-0 z-[200]"
+          >
+            <InitialSplash onComplete={() => setIsBooting(false)} />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }

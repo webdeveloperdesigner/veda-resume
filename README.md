@@ -657,6 +657,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.2.8** | 2026-06-23 | Expert ATS AI Rewrite Integration & Feedback/Security Dashboards. |
 | **v1.2.9** | 2026-06-23 | Real-Time Stats Dashboard & UI Enhancements. |
 | **v1.2.10** | 2026-06-23 | Security Patch & Deployment Hotfix. |
+| **v1.2.11** | 2026-07-04 | Cinematic App Boot & Loading Experience. |
 
 ---
 

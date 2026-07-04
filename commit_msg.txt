@@ -1,0 +1,10 @@
+feat(ui): v1.3.1 Cinematic App Boot & Loading Experience
+
+This patch introduces a major visual overhaul to the application's boot-up and parsing states.
+
+Highlights:
+- Introduced a brand new `InitialSplash.tsx` component that runs an immersive 15-second skeleton boot sequence when the user first visits the application.
+- Overhauled `LoadingState.tsx` with a dynamic, synchronized horizontal progress bar and a cinematic multi-ring circular spinner.
+- Prevented layout shifts during analysis by introducing underlying exact-height skeleton placeholders.
+- Synchronized versioning arrays in `ChangelogView.tsx`, `VersionsView.tsx`, and `WhatsNewPopup.tsx` to correctly place this UI update as `v1.3.1` chronologically above the initial localization setup (`v1.3.0`).
+- Updated the `implementation_plan.md` to shift localization string extraction steps to `v1.3.2` onwards, ensuring semantic versioning continuity.

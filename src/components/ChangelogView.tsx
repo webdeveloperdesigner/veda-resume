@@ -4,6 +4,17 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.1',
+    date: 'July 04, 2026',
+    title: 'Cinematic App Boot & Loading Experience',
+    description: 'We have completely transformed the initial app load and resume parsing states with high-fidelity, cinematic animations and background skeleton layouts.',
+    changes: [
+      { type: 'feature', text: 'Added InitialSplash screen with a 15-second YouTube-style skeleton boot-up sequence.' },
+      { type: 'feature', text: 'Overhauled LoadingState with a dynamic, synchronized horizontal progress bar and cinematic circular spinner.' },
+      { type: 'improvement', text: 'Prevented layout shifts during analysis by introducing underlying exact-height skeleton placeholders.' }
+    ]
+  },
+  {
     version: 'v1.3.0',
     date: 'June 24, 2026',
     title: 'Localization Infrastructure (Phase 1)',
