@@ -665,6 +665,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.3.5**  | 2026-07-04 | Navbar Navigation String Extraction.                                            |
 | **v1.3.6**  | 2026-07-04 | UploadZone Text Extraction.                                                     |
 | **v1.3.7**  | 2026-07-04 | UploadZone Error & Validation Extraction.                                       |
+| **v1.3.8**  | 2026-07-04 | LoadingState Message Extraction.                                                |
 
 ---
 

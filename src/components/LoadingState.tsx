@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Sparkles } from 'lucide-react';
 
 
 
 export function LoadingState({ isFinishing, onComplete }: { isFinishing?: boolean, onComplete?: () => void }) {
+  const { t } = useTranslation();
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -37,13 +39,13 @@ export function LoadingState({ isFinishing, onComplete }: { isFinishing?: boolea
 
   // Sync messages directly to the progress percentage
   let currentMessage = "";
-  if (progress < 20) currentMessage = "EXTRACTING DOCUMENT LAYOUT...";
-  else if (progress < 40) currentMessage = "ANALYZING CLARITY AND IMPACT...";
-  else if (progress < 60) currentMessage = "CHECKING ATS COMPATIBILITY...";
-  else if (progress < 75) currentMessage = "IDENTIFYING SKILL GAPS...";
-  else if (progress < 95) currentMessage = "EVALUATING INDUSTRY FIT...";
-  else if (progress < 100) currentMessage = "PREPARING VEDA INSIGHTS...";
-  else currentMessage = "ANALYSIS COMPLETE!";
+  if (progress < 20) currentMessage = t('loading.messages.extracting');
+  else if (progress < 40) currentMessage = t('loading.messages.analyzing');
+  else if (progress < 60) currentMessage = t('loading.messages.ats');
+  else if (progress < 75) currentMessage = t('loading.messages.gaps');
+  else if (progress < 95) currentMessage = t('loading.messages.fit');
+  else if (progress < 100) currentMessage = t('loading.messages.preparing');
+  else currentMessage = t('loading.messages.complete');
 
   return (
     <div className="relative w-full">

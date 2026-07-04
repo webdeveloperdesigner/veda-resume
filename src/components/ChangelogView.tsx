@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.8',
+    date: 'July 04, 2026',
+    title: 'LoadingState Message Extraction',
+    description: 'We extracted the dynamic, rotating status messages from the LoadingState component into our language dictionary, ensuring the entire cinematic boot sequence can be translated.',
+    changes: [
+      { type: 'feature', text: 'Extracted all rotating loading messages (e.g., EXTRACTING DOCUMENT LAYOUT...) into en.json.' },
+      { type: 'feature', text: 'Replaced hardcoded English text in LoadingState.tsx with dynamic useTranslation hooks.' }
+    ]
+  },
+  {
     version: 'v1.3.7',
     date: 'July 04, 2026',
     title: 'UploadZone Error & Validation Extraction',

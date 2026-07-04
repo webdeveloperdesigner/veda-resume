@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.3.8', date: 'July 04, 2026', title: 'LoadingState Message Extraction' },
   { version: 'v1.3.7', date: 'July 04, 2026', title: 'UploadZone Error & Validation Extraction' },
   { version: 'v1.3.6', date: 'July 04, 2026', title: 'UploadZone Text Extraction' },
   { version: 'v1.3.5', date: 'July 04, 2026', title: 'Navbar Navigation String Extraction' },
