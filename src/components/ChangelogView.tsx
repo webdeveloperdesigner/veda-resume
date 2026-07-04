@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.7',
+    date: 'July 04, 2026',
+    title: 'UploadZone Error & Validation Extraction',
+    description: 'We finalized the localization of the UploadZone component by extracting all error states, validation text, and warning messages into our language dictionary.',
+    changes: [
+      { type: 'feature', text: 'Extracted PDF validation errors, character length warnings, and missing file states into en.json.' },
+      { type: 'feature', text: 'Replaced hardcoded English error text in UploadZone.tsx with dynamic useTranslation hooks.' }
+    ]
+  },
+  {
     version: 'v1.3.6',
     date: 'July 04, 2026',
     title: 'UploadZone Text Extraction',

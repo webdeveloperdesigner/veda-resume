@@ -27,7 +27,25 @@
       "placeholder": "Paste your resume text here...",
       "characters": "{{count}} characters"
     },
+    "errors": {
+      "invalid_pdf": "Please upload a valid PDF file.",
+      "no_text": "Could not extract text. Make sure the PDF is not an image/scan.",
+      "read_failed": "Failed to read PDF. Please try pasting text instead.",
+      "upload_first": "Please upload a PDF resume first.",
+      "too_short": "Text is too short. Please provide at least 100 characters."
+    },
     "submit": "Review My Resume"
+  },
+  "loading": {
+    "messages": {
+      "extracting": "EXTRACTING DOCUMENT LAYOUT...",
+      "analyzing": "ANALYZING CLARITY AND IMPACT...",
+      "ats": "CHECKING ATS COMPATIBILITY...",
+      "gaps": "IDENTIFYING SKILL GAPS...",
+      "fit": "EVALUATING INDUSTRY FIT...",
+      "preparing": "PREPARING VEDA INSIGHTS...",
+      "complete": "ANALYSIS COMPLETE!"
+    }
   },
   "nav": {
     "home": "Home",

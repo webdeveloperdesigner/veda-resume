@@ -47,7 +47,7 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
 
   const processFile = async (file: File) => {
     if (file.type !== 'application/pdf') {
-      setError('Please upload a valid PDF file.');
+      setError(t('upload.errors.invalid_pdf'));
       return;
     }
     
@@ -61,9 +61,9 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
     } catch (err: unknown) {
       const error = err as Error;
       if (error.message === 'PDF_NO_TEXT') {
-        setError('Could not extract text. Make sure the PDF is not an image/scan.');
+        setError(t('upload.errors.no_text'));
       } else {
-        setError('Failed to read PDF. Please try pasting text instead.');
+        setError(t('upload.errors.read_failed'));
       }
       setSelectedFile(null);
       setExtractedPdfText(null);
@@ -87,14 +87,14 @@ export function UploadZone({ onProcessText }: UploadZoneProps) {
   const handleSubmit = () => {
     if (mode === 'pdf') {
       if (!extractedPdfText) {
-        setError('Please upload a PDF resume first.');
+        setError(t('upload.errors.upload_first'));
         return;
       }
       setError(null);
       onProcessText(extractedPdfText, targetRole);
     } else {
       if (textInput.length < 100) {
-        setError('Text is too short. Please provide at least 100 characters.');
+        setError(t('upload.errors.too_short'));
         return;
       }
       setError(null);
