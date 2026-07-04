@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, Variants } from 'framer-motion';
 import { CheckCircle2, AlertTriangle, Briefcase, TrendingUp, Target } from 'lucide-react';
 import { ReviewResult } from '../lib/types';
@@ -53,6 +54,7 @@ const getScoreLabel = (score: number) => {
 };
 
 export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
+  const { t } = useTranslation();
   const scoreMeta = getScoreLabel(data.overallScore);
   const [displayScore, setDisplayScore] = useState(0);
   const [showFeedbackModal, setShowFeedbackModal] = useState(false);
@@ -80,11 +82,11 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
       className="w-full max-w-5xl mx-auto space-y-12 pb-20"
     >
       <motion.div variants={itemVariants} className="text-center space-y-8">
-        <h2 className="text-lg font-bold tracking-[0.2em] uppercase text-gray-500">ATS Score Analysis</h2>
+        <h2 className="text-lg font-bold tracking-[0.2em] uppercase text-gray-500">{t('result.labels.analysis_title')}</h2>
         
         <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
           <div className="flex flex-col items-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">Current Score</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-gray-400 mb-2">{t('result.labels.current_score')}</span>
             <div className="text-6xl md:text-8xl font-black leading-none text-gray-300 dark:text-gray-700">
               {displayScore}
             </div>
@@ -95,7 +97,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
           </div>
 
           <div className="flex flex-col items-center">
-            <span className="text-sm font-bold uppercase tracking-widest text-emerald-500 mb-2 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">Optimized Score</span>
+            <span className="text-sm font-bold uppercase tracking-widest text-emerald-500 mb-2 drop-shadow-[0_0_10px_rgba(16,185,129,0.3)]">{t('result.labels.optimized_score')}</span>
             <div className="text-[clamp(5rem,15vw,10rem)] font-black leading-none text-score-gradient drop-shadow-[0_0_40px_rgba(16,185,129,0.2)]">
               {data.improvedScore || data.overallScore + 20 /* Fallback if not returned */}
             </div>
@@ -113,13 +115,13 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
           <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-[50px] pointer-events-none" />
           <h3 className="text-xl font-bold mb-6 flex items-center space-x-2 relative z-10">
             <TrendingUp className="w-6 h-6 text-emerald-400" />
-            <span>Metrics Breakdown</span>
+            <span>{t('result.labels.metrics_title')}</span>
           </h3>
           <div className="relative z-10">
-            <ProgressBar label="Clarity" value={data.categoryScores.clarity} />
-            <ProgressBar label="Impact" value={data.categoryScores.impact} />
-            <ProgressBar label="ATS Compatibility" value={data.categoryScores.atsCompatibility} />
-            <ProgressBar label="Structure" value={data.categoryScores.structure} />
+            <ProgressBar label={t('result.labels.clarity')} value={data.categoryScores.clarity} />
+            <ProgressBar label={t('result.labels.impact')} value={data.categoryScores.impact} />
+            <ProgressBar label={t('result.labels.ats')} value={data.categoryScores.atsCompatibility} />
+            <ProgressBar label={t('result.labels.structure')} value={data.categoryScores.structure} />
           </div>
         </motion.div>
 
@@ -130,7 +132,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
               <div>
                 <h3 className="text-xl font-bold mb-3 flex items-center space-x-2 text-blue-400">
                   <Briefcase className="w-6 h-6" />
-                  <span>Industry Fit</span>
+                  <span>{t('result.labels.industry_fit')}</span>
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed bg-gray-50 dark:bg-black/20 p-4 rounded-xl border border-gray-200 dark:border-white/5">{data.industryFit}</p>
               </div>
@@ -139,7 +141,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
               <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/5">
                 <h3 className="text-sm font-bold mb-4 text-indigo-400 tracking-wider uppercase flex items-center space-x-2">
                   <Target className="w-4 h-4" />
-                  <span>Potential Skill Gaps</span>
+                  <span>{t('result.labels.skill_gaps')}</span>
                 </h3>
                 <div className="flex flex-wrap gap-3">
                   {data.skillGap.map((skill, i) => (
@@ -158,7 +160,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
               <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/5">
                 <h3 className="text-sm font-bold mb-4 text-purple-500 tracking-wider uppercase flex items-center space-x-2">
                   <Target className="w-4 h-4" />
-                  <span>Missing ATS Keywords</span>
+                  <span>{t('result.labels.missing_keywords')}</span>
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {data.missingKeywords.map((kw, i) => (
@@ -177,7 +179,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
         <motion.div variants={itemVariants} className="bg-green-50 dark:bg-green-500/5 backdrop-blur-md border border-green-200 dark:border-green-500/20 rounded-2xl p-8 shadow-xl">
           <h3 className="text-xl font-bold mb-6 flex items-center space-x-2 text-green-400">
             <CheckCircle2 className="w-6 h-6" />
-            <span>Key Strengths</span>
+            <span>{t('result.labels.strengths')}</span>
           </h3>
           <ul className="space-y-4">
             {data.strengths.map((str, i) => (
@@ -192,7 +194,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
         <motion.div variants={itemVariants} className="bg-amber-50 dark:bg-amber-500/5 backdrop-blur-md border border-amber-200 dark:border-amber-500/20 rounded-2xl p-8 shadow-xl">
           <h3 className="text-xl font-bold mb-6 flex items-center space-x-2 text-amber-400">
             <AlertTriangle className="w-6 h-6" />
-            <span>Critical Weaknesses</span>
+            <span>{t('result.labels.weaknesses')}</span>
           </h3>
           <ul className="space-y-4">
             {data.weaknesses.map((wk, i) => (
@@ -304,7 +306,7 @@ export function ResultView({ data, onReset, analysisTime }: ResultViewProps) {
           }}
           className="px-10 py-4 rounded-full font-bold text-gray-700 dark:text-white bg-white dark:bg-white/10 border border-gray-200 dark:border-white/20 hover:bg-gray-50 dark:hover:bg-white/20 backdrop-blur-md transition-all active:scale-[0.98] shadow-xl"
         >
-          Analyze Another Resume
+          {t('result.labels.analyze_another')}
         </button>
       </motion.div>
 

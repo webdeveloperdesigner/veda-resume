@@ -47,6 +47,24 @@
       "complete": "ANALYSIS COMPLETE!"
     }
   },
+  "result": {
+    "labels": {
+      "analysis_title": "ATS Score Analysis",
+      "current_score": "Current Score",
+      "optimized_score": "Optimized Score",
+      "metrics_title": "Metrics Breakdown",
+      "clarity": "Clarity",
+      "impact": "Impact",
+      "ats": "ATS Compatibility",
+      "structure": "Structure",
+      "industry_fit": "Industry Fit",
+      "skill_gaps": "Potential Skill Gaps",
+      "missing_keywords": "Missing ATS Keywords",
+      "strengths": "Key Strengths",
+      "weaknesses": "Critical Weaknesses",
+      "analyze_another": "Analyze Another Resume"
+    }
+  },
   "nav": {
     "home": "Home",
     "changelog": "Changelog",

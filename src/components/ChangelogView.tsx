@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.3.9',
+    date: 'July 04, 2026',
+    title: 'ResultView Basic Label Extraction',
+    description: 'We started the localization of the massive Result Dashboard, successfully extracting all the primary section headers, metric labels, and primary buttons into the dictionary.',
+    changes: [
+      { type: 'feature', text: 'Extracted section titles (e.g., Key Strengths, Industry Fit, Metric Breakdown) into en.json.' },
+      { type: 'feature', text: 'Replaced hardcoded English text in ResultView.tsx with dynamic useTranslation hooks.' }
+    ]
+  },
+  {
     version: 'v1.3.8',
     date: 'July 04, 2026',
     title: 'LoadingState Message Extraction',
