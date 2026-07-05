@@ -10,8 +10,9 @@ interface NavbarProps {
 }
 
 export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangDropdownOpen, setIsLangDropdownOpen] = useState(false);
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
@@ -121,6 +122,40 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
 
           {/* Right: CTA & Mobile Toggle */}
           <div className="flex items-center space-x-3">
+            {/* Language Switcher Dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
+                className="px-3 py-2 text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
+              >
+                {i18n.resolvedLanguage === 'hi' ? 'HI' : 'EN'}
+              </button>
+              
+              <AnimatePresence>
+                {isLangDropdownOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 10 }}
+                    className="absolute top-full right-0 mt-2 w-36 bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 rounded-xl shadow-xl overflow-hidden z-50 pointer-events-auto"
+                  >
+                    <button
+                      onClick={() => { i18n.changeLanguage('en'); setIsLangDropdownOpen(false); }}
+                      className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'en' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
+                    >
+                      English
+                    </button>
+                    <button
+                      onClick={() => { i18n.changeLanguage('hi'); setIsLangDropdownOpen(false); }}
+                      className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'hi' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
+                    >
+                      हिंदी (Hindi)
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+            
             <button
               onClick={toggleTheme}
               className="p-2 text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto"

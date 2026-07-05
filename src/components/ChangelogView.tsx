@@ -4,6 +4,26 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.5',
+    date: 'July 06, 2026',
+    title: 'Language Switcher UI Integration',
+    description: 'We implemented a sleek, cinematic language switcher dropdown in the main navigation bar, allowing users to toggle between English and Hindi effortlessly.',
+    changes: [
+      { type: 'feature', text: 'Added a dynamic Language Switcher dropdown UI to Navbar.tsx.' },
+      { type: 'feature', text: 'Wired the dropdown to i18n.changeLanguage() for real-time translation toggling.' }
+    ]
+  },
+  {
+    version: 'v1.4.4',
+    date: 'July 06, 2026',
+    title: 'Language Detection & State',
+    description: 'We enabled intelligent language detection, allowing the application to automatically persist and apply the user\'s language preferences via localStorage.',
+    changes: [
+      { type: 'feature', text: 'Configured i18next-browser-languagedetector in i18n.ts.' },
+      { type: 'feature', text: 'Set up localStorage caching to preserve the active language across sessions.' }
+    ]
+  },
+  {
     version: 'v1.4.3',
     date: 'July 05, 2026',
     title: 'Hindi Translation: Result Dashboard',

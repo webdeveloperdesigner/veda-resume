@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.4.5', date: 'July 06, 2026', title: 'Language Switcher UI Integration' },
+  { version: 'v1.4.4', date: 'July 06, 2026', title: 'Language Detection & State' },
   { version: 'v1.4.3', date: 'July 05, 2026', title: 'Hindi Translation: Result Dashboard' },
   { version: 'v1.4.2', date: 'July 05, 2026', title: 'Hindi Translation: Upload & Loading' },
   { version: 'v1.4.1', date: 'July 05, 2026', title: 'Hindi Translation: Hero & Navbar' },

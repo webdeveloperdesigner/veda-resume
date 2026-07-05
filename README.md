@@ -672,6 +672,8 @@ DEALINGS IN THE SOFTWARE.
 | **v1.4.1**  | 2026-07-05 | Hindi Translation: Hero & Navbar.                                               |
 | **v1.4.2**  | 2026-07-05 | Hindi Translation: Upload & Loading.                                            |
 | **v1.4.3**  | 2026-07-05 | Hindi Translation: Result Dashboard.                                            |
+| **v1.4.4**  | 2026-07-06 | Language Detection & State.                                                     |
+| **v1.4.5**  | 2026-07-06 | Language Switcher UI Integration.                                               |
 
 ---
 

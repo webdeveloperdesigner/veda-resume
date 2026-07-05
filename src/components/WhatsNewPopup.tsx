@@ -37,7 +37,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
-                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.4.3 Release</p>
+                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.4.5 Release</p>
                     </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
@@ -51,8 +51,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Result Dashboard</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the entire Result Dashboard, including metrics, labels, and smart rewrites, into Hindi.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Language Switcher UI</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Added a sleek dropdown in the navigation bar to dynamically toggle between English and Hindi.</p>
                     </div>
                   </div>
                   
@@ -61,8 +61,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <ShieldCheck className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Upload & Loading</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the Upload Zone validation states and cinematic Loading Sequence into Hindi.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Language Detection</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Integrated i18next-browser-languagedetector to automatically persist and apply language preferences.</p>
                     </div>
                   </div>
 
@@ -71,8 +71,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Zap className="w-4 h-4 text-purple-500 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Hero & Navbar</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the landing page Hero section and the main navigation bar into Hindi.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Result Dashboard</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the entire Result Dashboard, including metrics, labels, and smart rewrites, into Hindi.</p>
                     </div>
                   </div>
                 </div>

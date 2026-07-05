@@ -25,6 +25,12 @@ i18n
     resources,
     fallbackLng: 'en',
     
+    // Explicitly configure language detection
+    detection: {
+      order: ['localStorage', 'navigator'],
+      caches: ['localStorage'], // cache user language on
+    },
+
     // We can uncomment this for debugging later if needed
     // debug: true,
 
