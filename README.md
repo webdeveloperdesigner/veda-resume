@@ -668,6 +668,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.3.8**  | 2026-07-04 | LoadingState Message Extraction.                                                |
 | **v1.3.9**  | 2026-07-04 | ResultView Basic Label Extraction.                                              |
 | **v1.3.10** | 2026-07-04 | ResultView Complex String Extraction.                                           |
+| **v1.4.0**  | 2026-07-05 | Hindi Dictionary Initialization.                                                |
 
 ---
 

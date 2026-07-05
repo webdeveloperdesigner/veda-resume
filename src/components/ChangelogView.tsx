@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.0',
+    date: 'July 05, 2026',
+    title: 'Hindi Dictionary Initialization',
+    description: 'We officially launched Phase 2 of our Localization Roadmap by creating the core Hindi dictionary file, readying the platform for massive multi-language support across India.',
+    changes: [
+      { type: 'feature', text: 'Created the foundational src/locales/hi.json dictionary for Hindi.' },
+      { type: 'feature', text: 'Bound the hi.json file to the central i18next configuration.' }
+    ]
+  },
+  {
     version: 'v1.3.10',
     date: 'July 04, 2026',
     title: 'ResultView Complex String Extraction',

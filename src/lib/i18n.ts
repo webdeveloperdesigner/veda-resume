@@ -3,6 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import enTranslation from '../locales/en.json';
+import hiTranslation from '../locales/hi.json';
 
 // Namespaces for translation
 const resources = {
@@ -10,7 +11,7 @@ const resources = {
     translation: enTranslation
   },
   hi: {
-    translation: {}
+    translation: hiTranslation
   }
 };
 

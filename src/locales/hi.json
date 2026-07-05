@@ -1,0 +1,103 @@
+{
+  "hero": {
+    "badges": {
+      "v2_coming_soon": "V2 Coming Soon",
+      "powered_by_gemini": "Powered by Gemini",
+      "powered_by_bodhai": "Co-powered by BodhAI"
+    },
+    "title_line1": "AI-powered resume analysis",
+    "title_line2": "for smarter careers.",
+    "subtitle": "Virtual Employability & Document Analyzer (VEDA) deeply evaluates your career profile using knowledge-driven insights. Drop your resume to uncover skill gaps, industry fit, and actionable improvements."
+  },
+  "upload": {
+    "tabs": {
+      "pdf": "Upload PDF",
+      "text": "Paste Text"
+    },
+    "role_label": "Target Role (Optional)",
+    "role_placeholder": "e.g. Senior Frontend Developer",
+    "dropzone": {
+      "title": "Drop your resume PDF here, or click to browse",
+      "subtitle": "PDF only · max 10 MB · text is never stored",
+      "reading": "Reading PDF...",
+      "replace": "Replace File",
+      "characters_extracted": "{{count}} characters extracted · click to replace"
+    },
+    "text_paste": {
+      "placeholder": "Paste your resume text here...",
+      "characters": "{{count}} characters"
+    },
+    "errors": {
+      "invalid_pdf": "Please upload a valid PDF file.",
+      "no_text": "Could not extract text. Make sure the PDF is not an image/scan.",
+      "read_failed": "Failed to read PDF. Please try pasting text instead.",
+      "upload_first": "Please upload a PDF resume first.",
+      "too_short": "Text is too short. Please provide at least 100 characters."
+    },
+    "submit": "Review My Resume"
+  },
+  "loading": {
+    "messages": {
+      "extracting": "EXTRACTING DOCUMENT LAYOUT...",
+      "analyzing": "ANALYZING CLARITY AND IMPACT...",
+      "ats": "CHECKING ATS COMPATIBILITY...",
+      "gaps": "IDENTIFYING SKILL GAPS...",
+      "fit": "EVALUATING INDUSTRY FIT...",
+      "preparing": "PREPARING VEDA INSIGHTS...",
+      "complete": "ANALYSIS COMPLETE!"
+    }
+  },
+  "result": {
+    "labels": {
+      "analysis_title": "ATS Score Analysis",
+      "current_score": "Current Score",
+      "optimized_score": "Optimized Score",
+      "metrics_title": "Metrics Breakdown",
+      "clarity": "Clarity",
+      "impact": "Impact",
+      "ats": "ATS Compatibility",
+      "structure": "Structure",
+      "industry_fit": "Industry Fit",
+      "skill_gaps": "Potential Skill Gaps",
+      "missing_keywords": "Missing ATS Keywords",
+      "strengths": "Key Strengths",
+      "weaknesses": "Critical Weaknesses",
+      "analyze_another": "Analyze Another Resume"
+    },
+    "rewrites": {
+      "title": "Smart Rewrites",
+      "subtitle": "Before and after comparisons to maximize impact.",
+      "original": "Original",
+      "suggested": "Suggested",
+      "copy_tooltip": "Copy to clipboard",
+      "why": "WHY: "
+    },
+    "optimized": {
+      "title": "Fully Optimized ATS Resume",
+      "subtitle": "Copy and paste this expert-level rewrite into your word processor. It has been optimized for ATS parsers.",
+      "summary_title": "Summary of Changes",
+      "fallback_text": "No optimized resume provided by the AI. Please try again.",
+      "copy_btn": "Copy Resume"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "changelog": "Changelog",
+    "versions": "Versions",
+    "security": "Security",
+    "updates": "Updates",
+    "feedback": "Feedback",
+    "star": "Star Us",
+    "star_github": "Star us on GitHub!",
+    "star_title": "Give us a star if it's good!",
+    "toggle_theme": "Toggle Theme"
+  },
+  "footer": {
+    "copyright": "© 2026 VEDA Resume Analysis.",
+    "powered": "Powered by Google Gemini.",
+    "zero_data": "Zero Data Stored"
+  },
+  "common": {
+    "loading": "Loading..."
+  }
+}
