@@ -671,6 +671,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.4.0**  | 2026-07-05 | Hindi Dictionary Initialization.                                                |
 | **v1.4.1**  | 2026-07-05 | Hindi Translation: Hero & Navbar.                                               |
 | **v1.4.2**  | 2026-07-05 | Hindi Translation: Upload & Loading.                                            |
+| **v1.4.3**  | 2026-07-05 | Hindi Translation: Result Dashboard.                                            |
 
 ---
 

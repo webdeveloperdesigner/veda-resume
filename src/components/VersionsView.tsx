@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.4.3', date: 'July 05, 2026', title: 'Hindi Translation: Result Dashboard' },
   { version: 'v1.4.2', date: 'July 05, 2026', title: 'Hindi Translation: Upload & Loading' },
   { version: 'v1.4.1', date: 'July 05, 2026', title: 'Hindi Translation: Hero & Navbar' },
   { version: 'v1.4.0', date: 'July 05, 2026', title: 'Hindi Dictionary Initialization' },

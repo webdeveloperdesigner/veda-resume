@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.3',
+    date: 'July 05, 2026',
+    title: 'Hindi Translation: Result Dashboard',
+    description: 'We translated the massive Result Dashboard into Hindi, completing the content localization of all core UI components.',
+    changes: [
+      { type: 'feature', text: 'Translated all metrics, section headers (Key Strengths, Skill Gaps, etc.), and tooltips in ResultView.tsx to Hindi.' },
+      { type: 'feature', text: 'Translated the Smart Rewrites and Fully Optimized ATS Resume complex string templates to Hindi.' }
+    ]
+  },
+  {
     version: 'v1.4.2',
     date: 'July 05, 2026',
     title: 'Hindi Translation: Upload & Loading',

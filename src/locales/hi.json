@@ -49,35 +49,35 @@
   },
   "result": {
     "labels": {
-      "analysis_title": "ATS Score Analysis",
-      "current_score": "Current Score",
-      "optimized_score": "Optimized Score",
-      "metrics_title": "Metrics Breakdown",
-      "clarity": "Clarity",
-      "impact": "Impact",
-      "ats": "ATS Compatibility",
-      "structure": "Structure",
-      "industry_fit": "Industry Fit",
-      "skill_gaps": "Potential Skill Gaps",
-      "missing_keywords": "Missing ATS Keywords",
-      "strengths": "Key Strengths",
-      "weaknesses": "Critical Weaknesses",
-      "analyze_another": "Analyze Another Resume"
+      "analysis_title": "ATS स्कोर विश्लेषण",
+      "current_score": "वर्तमान स्कोर",
+      "optimized_score": "अनुकूलित स्कोर",
+      "metrics_title": "मेट्रिक्स विवरण",
+      "clarity": "स्पष्टता",
+      "impact": "प्रभाव",
+      "ats": "ATS संगतता",
+      "structure": "संरचना",
+      "industry_fit": "उद्योग फिट",
+      "skill_gaps": "संभावित कौशल अंतराल",
+      "missing_keywords": "लापता ATS कीवर्ड",
+      "strengths": "प्रमुख ताकतें",
+      "weaknesses": "गंभीर कमजोरियां",
+      "analyze_another": "एक अन्य रेज़्यूमे का विश्लेषण करें"
     },
     "rewrites": {
-      "title": "Smart Rewrites",
-      "subtitle": "Before and after comparisons to maximize impact.",
-      "original": "Original",
-      "suggested": "Suggested",
-      "copy_tooltip": "Copy to clipboard",
-      "why": "WHY: "
+      "title": "स्मार्ट रीराइट्स",
+      "subtitle": "प्रभाव को अधिकतम करने के लिए पहले और बाद की तुलना।",
+      "original": "मूल",
+      "suggested": "सुझाया गया",
+      "copy_tooltip": "क्लिपबोर्ड पर कॉपी करें",
+      "why": "क्यों: "
     },
     "optimized": {
-      "title": "Fully Optimized ATS Resume",
-      "subtitle": "Copy and paste this expert-level rewrite into your word processor. It has been optimized for ATS parsers.",
-      "summary_title": "Summary of Changes",
-      "fallback_text": "No optimized resume provided by the AI. Please try again.",
-      "copy_btn": "Copy Resume"
+      "title": "पूरी तरह से अनुकूलित ATS रेज़्यूमे",
+      "subtitle": "इस विशेषज्ञ-स्तर के रीराइट को अपने वर्ड प्रोसेसर में कॉपी और पेस्ट करें। इसे ATS पार्सर के लिए अनुकूलित किया गया है।",
+      "summary_title": "परिवर्तनों का सारांश",
+      "fallback_text": "AI द्वारा कोई अनुकूलित रेज़्यूमे प्रदान नहीं किया गया। कृपया पुनः प्रयास करें।",
+      "copy_btn": "रेज़्यूमे कॉपी करें"
     }
   },
   "nav": {
