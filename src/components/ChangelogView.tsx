@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.2',
+    date: 'July 05, 2026',
+    title: 'Hindi Translation: Upload & Loading',
+    description: 'We continued the Phase 2 translation push by translating the Upload Zone instructions, validation errors, and the cinematic loading states into Hindi.',
+    changes: [
+      { type: 'feature', text: 'Translated Upload Zone file drop labels, character counters, and PDF validation errors to Hindi (hi.json).' },
+      { type: 'feature', text: 'Translated the rotating Loading State messages (e.g., "दस्तावेज़ लेआउट निकाला जा रहा है...") to Hindi.' }
+    ]
+  },
+  {
     version: 'v1.4.1',
     date: 'July 05, 2026',
     title: 'Hindi Translation: Hero & Navbar',

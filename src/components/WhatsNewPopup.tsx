@@ -37,7 +37,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
-                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.4.1 Release</p>
+                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.4.2 Release</p>
                     </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
@@ -51,8 +51,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Hero & Navbar</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the landing page Hero section and the main navigation bar into Hindi.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Upload & Loading</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the Upload Zone validation states and cinematic Loading Sequence into Hindi.</p>
                     </div>
                   </div>
                   
@@ -61,8 +61,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <ShieldCheck className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Dictionary Initialization</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Launched Phase 2 of localization by creating hi.json and binding it to our central i18n configuration.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Hero & Navbar</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the landing page Hero section and the main navigation bar into Hindi.</p>
                     </div>
                   </div>
 
@@ -71,8 +71,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Zap className="w-4 h-4 text-purple-500 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Phase 1 Localization Concluded</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Extracted the final complex string templates, nested tooltips, and dynamic rewrite comparisons from the Result Dashboard.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Dictionary Initialization</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Launched Phase 2 of localization by creating hi.json and binding it to our central i18n configuration.</p>
                     </div>
                   </div>
                 </div>
