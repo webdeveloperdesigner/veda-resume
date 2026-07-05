@@ -1,50 +1,50 @@
 {
   "hero": {
     "badges": {
-      "v2_coming_soon": "V2 Coming Soon",
-      "powered_by_gemini": "Powered by Gemini",
-      "powered_by_bodhai": "Co-powered by BodhAI"
+      "v2_coming_soon": "V2 जल्द आ रहा है",
+      "powered_by_gemini": "Gemini द्वारा संचालित",
+      "powered_by_bodhai": "BodhAI द्वारा सह-संचालित"
     },
-    "title_line1": "AI-powered resume analysis",
-    "title_line2": "for smarter careers.",
-    "subtitle": "Virtual Employability & Document Analyzer (VEDA) deeply evaluates your career profile using knowledge-driven insights. Drop your resume to uncover skill gaps, industry fit, and actionable improvements."
+    "title_line1": "AI-संचालित रेज़्यूमे विश्लेषण",
+    "title_line2": "बेहतर करियर के लिए।",
+    "subtitle": "वर्चुअल एम्प्लॉयबिलिटी एंड डॉक्यूमेंट एनालाइज़र (VEDA) ज्ञान-संचालित इनसाइट्स का उपयोग करके आपके करियर प्रोफ़ाइल का गहराई से मूल्यांकन करता है। कौशल अंतराल, उद्योग फिट और सुधार योग्य जानकारी को उजागर करने के लिए अपना रेज़्यूमे ड्रॉप करें।"
   },
   "upload": {
     "tabs": {
-      "pdf": "Upload PDF",
-      "text": "Paste Text"
+      "pdf": "PDF अपलोड करें",
+      "text": "टेक्स्ट पेस्ट करें"
     },
-    "role_label": "Target Role (Optional)",
-    "role_placeholder": "e.g. Senior Frontend Developer",
+    "role_label": "लक्षित भूमिका (वैकल्पिक)",
+    "role_placeholder": "जैसे: सीनियर फ्रंटएंड डेवलपर",
     "dropzone": {
-      "title": "Drop your resume PDF here, or click to browse",
-      "subtitle": "PDF only · max 10 MB · text is never stored",
-      "reading": "Reading PDF...",
-      "replace": "Replace File",
-      "characters_extracted": "{{count}} characters extracted · click to replace"
+      "title": "अपना रेज़्यूमे PDF यहाँ ड्रॉप करें, या ब्राउज़ करने के लिए क्लिक करें",
+      "subtitle": "केवल PDF · अधिकतम 10 MB · टेक्स्ट कभी स्टोर नहीं किया जाता",
+      "reading": "PDF पढ़ रहा है...",
+      "replace": "फ़ाइल बदलें",
+      "characters_extracted": "{{count}} अक्षर निकाले गए · बदलने के लिए क्लिक करें"
     },
     "text_paste": {
-      "placeholder": "Paste your resume text here...",
-      "characters": "{{count}} characters"
+      "placeholder": "अपना रेज़्यूमे टेक्स्ट यहाँ पेस्ट करें...",
+      "characters": "{{count}} अक्षर"
     },
     "errors": {
-      "invalid_pdf": "Please upload a valid PDF file.",
-      "no_text": "Could not extract text. Make sure the PDF is not an image/scan.",
-      "read_failed": "Failed to read PDF. Please try pasting text instead.",
-      "upload_first": "Please upload a PDF resume first.",
-      "too_short": "Text is too short. Please provide at least 100 characters."
+      "invalid_pdf": "कृपया एक वैध PDF फ़ाइल अपलोड करें।",
+      "no_text": "टेक्स्ट नहीं निकाला जा सका। सुनिश्चित करें कि PDF कोई छवि/स्कैन नहीं है।",
+      "read_failed": "PDF पढ़ने में विफल। कृपया इसके बजाय टेक्स्ट पेस्ट करने का प्रयास करें।",
+      "upload_first": "कृपया पहले एक PDF रेज़्यूमे अपलोड करें।",
+      "too_short": "टेक्स्ट बहुत छोटा है। कृपया कम से कम 100 अक्षर प्रदान करें।"
     },
-    "submit": "Review My Resume"
+    "submit": "मेरे रेज़्यूमे की समीक्षा करें"
   },
   "loading": {
     "messages": {
-      "extracting": "EXTRACTING DOCUMENT LAYOUT...",
-      "analyzing": "ANALYZING CLARITY AND IMPACT...",
-      "ats": "CHECKING ATS COMPATIBILITY...",
-      "gaps": "IDENTIFYING SKILL GAPS...",
-      "fit": "EVALUATING INDUSTRY FIT...",
-      "preparing": "PREPARING VEDA INSIGHTS...",
-      "complete": "ANALYSIS COMPLETE!"
+      "extracting": "दस्तावेज़ लेआउट निकाला जा रहा है...",
+      "analyzing": "स्पष्टता और प्रभाव का विश्लेषण किया जा रहा है...",
+      "ats": "ATS संगतता की जाँच की जा रही है...",
+      "gaps": "कौशल अंतराल की पहचान की जा रही है...",
+      "fit": "उद्योग फिट का मूल्यांकन किया जा रहा है...",
+      "preparing": "VEDA इनसाइट्स तैयार किए जा रहे हैं...",
+      "complete": "विश्लेषण पूर्ण!"
     }
   },
   "result": {
@@ -81,16 +81,16 @@
     }
   },
   "nav": {
-    "home": "Home",
-    "changelog": "Changelog",
-    "versions": "Versions",
-    "security": "Security",
-    "updates": "Updates",
-    "feedback": "Feedback",
-    "star": "Star Us",
-    "star_github": "Star us on GitHub!",
-    "star_title": "Give us a star if it's good!",
-    "toggle_theme": "Toggle Theme"
+    "home": "होम",
+    "changelog": "चेंजलॉग",
+    "versions": "संस्करण",
+    "security": "सुरक्षा",
+    "updates": "अपडेट",
+    "feedback": "प्रतिक्रिया",
+    "star": "हमें स्टार दें",
+    "star_github": "हमें GitHub पर स्टार दें!",
+    "star_title": "अगर यह अच्छा है तो हमें एक स्टार दें!",
+    "toggle_theme": "थीम बदलें"
   },
   "footer": {
     "copyright": "© 2026 VEDA Resume Analysis.",

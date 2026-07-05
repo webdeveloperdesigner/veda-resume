@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.4.1', date: 'July 05, 2026', title: 'Hindi Translation: Hero & Navbar' },
   { version: 'v1.4.0', date: 'July 05, 2026', title: 'Hindi Dictionary Initialization' },
   { version: 'v1.3.10', date: 'July 04, 2026', title: 'ResultView Complex String Extraction' },
   { version: 'v1.3.9', date: 'July 04, 2026', title: 'ResultView Basic Label Extraction' },

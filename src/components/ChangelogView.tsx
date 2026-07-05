@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.1',
+    date: 'July 05, 2026',
+    title: 'Hindi Translation: Hero & Navbar',
+    description: 'We began the massive translation effort by converting the landing page Hero section and the main navigation bar into Hindi.',
+    changes: [
+      { type: 'feature', text: 'Translated Hero titles, subtitles, and dynamic badges into Hindi (hi.json).' },
+      { type: 'feature', text: 'Translated all Navbar links, tooltips, and action buttons into Hindi.' }
+    ]
+  },
+  {
     version: 'v1.4.0',
     date: 'July 05, 2026',
     title: 'Hindi Dictionary Initialization',
