@@ -3,6 +3,32 @@ import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bell, Menu, X, Star, Sun, Moon } from 'lucide-react';
 
+const IndiaFlag = () => (
+  <svg viewBox="0 0 64 64" className="w-4 h-4 rounded-sm flex-shrink-0 shadow-sm" xmlns="http://www.w3.org/2000/svg">
+    <rect width="64" height="21.33" fill="#FF9933" />
+    <rect y="21.33" width="64" height="21.33" fill="#FFFFFF" />
+    <rect y="42.66" width="64" height="21.33" fill="#138808" />
+    <circle cx="32" cy="32" r="7" fill="#000080" />
+    <circle cx="32" cy="32" r="5" fill="#FFFFFF" />
+    <circle cx="32" cy="32" r="3" fill="#000080" />
+  </svg>
+);
+
+const USFlag = () => (
+  <svg viewBox="0 0 64 64" className="w-4 h-4 rounded-sm flex-shrink-0 shadow-sm" xmlns="http://www.w3.org/2000/svg">
+    <rect width="64" height="64" fill="#B22234" />
+    <rect y="9.14" width="64" height="9.14" fill="#FFFFFF" />
+    <rect y="27.42" width="64" height="9.14" fill="#FFFFFF" />
+    <rect y="45.71" width="64" height="9.14" fill="#FFFFFF" />
+    <rect width="32" height="32" fill="#3C3B6E" />
+    <circle cx="8" cy="8" r="2" fill="#FFFFFF" />
+    <circle cx="24" cy="8" r="2" fill="#FFFFFF" />
+    <circle cx="16" cy="16" r="2" fill="#FFFFFF" />
+    <circle cx="8" cy="24" r="2" fill="#FFFFFF" />
+    <circle cx="24" cy="24" r="2" fill="#FFFFFF" />
+  </svg>
+);
+
 interface NavbarProps {
   currentView: 'home' | 'changelog' | 'versions' | 'security';
   onNavigate: (view: 'home' | 'changelog' | 'versions' | 'security') => void;
@@ -126,9 +152,10 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
             <div className="relative">
               <button
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
-                className="px-3 py-2 text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto"
+                className="px-3 py-2 text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto space-x-1.5"
               >
-                {i18n.resolvedLanguage === 'hi' ? 'HI' : 'EN'}
+                {i18n.resolvedLanguage === 'hi' ? <IndiaFlag /> : <USFlag />}
+                <span>{i18n.resolvedLanguage === 'hi' ? 'HI' : 'EN'}</span>
               </button>
               
               <AnimatePresence>
@@ -137,19 +164,21 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 10 }}
-                    className="absolute top-full right-0 mt-2 w-36 bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 rounded-xl shadow-xl overflow-hidden z-50 pointer-events-auto"
+                    className="absolute top-full right-0 mt-2 w-40 bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 rounded-xl shadow-xl overflow-hidden z-50 pointer-events-auto"
                   >
                     <button
                       onClick={() => { i18n.changeLanguage('en'); setIsLangDropdownOpen(false); }}
-                      className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'en' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
+                      className={`w-full flex items-center space-x-3 px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'en' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
                     >
-                      English
+                      <USFlag />
+                      <span>English</span>
                     </button>
                     <button
                       onClick={() => { i18n.changeLanguage('hi'); setIsLangDropdownOpen(false); }}
-                      className={`w-full text-left px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'hi' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
+                      className={`w-full flex items-center space-x-3 px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'hi' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
                     >
-                      हिंदी (Hindi)
+                      <IndiaFlag />
+                      <span>हिंदी (Hindi)</span>
                     </button>
                   </motion.div>
                 )}

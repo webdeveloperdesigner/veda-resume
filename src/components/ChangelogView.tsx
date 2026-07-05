@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.6',
+    date: 'July 06, 2026',
+    title: 'Language Flag UI Enhancement',
+    description: 'We upgraded the language switcher dropdown by integrating custom, high-fidelity SVG flag graphics for both India and the United States, giving the UI a premium finish.',
+    changes: [
+      { type: 'feature', text: 'Designed and integrated custom SVG components for the Indian and US flags.' },
+      { type: 'feature', text: 'Updated Navbar.tsx to display flags dynamically alongside the language text.' }
+    ]
+  },
+  {
     version: 'v1.4.5',
     date: 'July 06, 2026',
     title: 'Language Switcher UI Integration',
