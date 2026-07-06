@@ -17,6 +17,22 @@
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
                       linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
   }
+
+  /* Devanagari Script (Hindi) Typography Adjustments */
+  html[lang="hi"] body {
+    @apply tracking-wide;
+    line-height: 1.7; /* Increased line-height for Devanagari matras */
+  }
+
+  html[lang="hi"] h1, 
+  html[lang="hi"] h2, 
+  html[lang="hi"] h3, 
+  html[lang="hi"] h4,
+  html[lang="hi"] button {
+    line-height: 1.4;
+    padding-top: 0.1em; /* Prevent top-matra clipping */
+    padding-bottom: 0.1em; /* Prevent bottom-matra clipping */
+  }
 }
 
 @layer utilities {

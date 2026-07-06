@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, Variants, AnimatePresence } from 'framer-motion';
 import { UploadZone } from './components/UploadZone';
@@ -31,7 +31,7 @@ const itemVariants: Variants = {
 };
 
 function App() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [appState, setAppState] = useState<AppState>('idle');
   const [isBooting, setIsBooting] = useState(true);
   const [result, setResult] = useState<ReviewResult | null>(null);
@@ -41,6 +41,11 @@ function App() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [isV2ModalOpen, setIsV2ModalOpen] = useState(false);
   const [analysisTime, setAnalysisTime] = useState<string>('~15');
+
+  // Sync document language attribute for CSS targeting
+  useEffect(() => {
+    document.documentElement.lang = i18n.resolvedLanguage || 'en';
+  }, [i18n.resolvedLanguage]);
 
   const handleProcessText = async (text: string, targetRole?: string) => {
     setAppState('loading');

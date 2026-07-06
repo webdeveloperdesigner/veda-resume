@@ -18,7 +18,7 @@
     "role_placeholder": "e.g. Senior Frontend Developer",
     "dropzone": {
       "title": "Drop your resume PDF here, or click to browse",
-      "subtitle": "PDF only · max 10 MB · text is never stored",
+      "subtitle": "PDF only · max 5 MB · text is never stored",
       "reading": "Reading PDF...",
       "replace": "Replace File",
       "characters_extracted": "{{count}} characters extracted · click to replace"

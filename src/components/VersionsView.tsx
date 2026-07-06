@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.4.7', date: 'July 06, 2026', title: 'i18n Global React Integration' },
   { version: 'v1.4.6', date: 'July 06, 2026', title: 'Language Flag UI Enhancement' },
   { version: 'v1.4.5', date: 'July 06, 2026', title: 'Language Switcher UI Integration' },
   { version: 'v1.4.4', date: 'July 06, 2026', title: 'Language Detection & State' },

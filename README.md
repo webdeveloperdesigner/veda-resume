@@ -675,6 +675,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.4.4**  | 2026-07-06 | Language Detection & State.                                                     |
 | **v1.4.5**  | 2026-07-06 | Language Switcher UI Integration.                                               |
 | **v1.4.6**  | 2026-07-06 | Language Flag UI Enhancement.                                                   |
+| **v1.4.7**  | 2026-07-06 | i18n Global React Integration.                                                  |
 
 ---
 

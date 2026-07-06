@@ -154,7 +154,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
                 className="px-3 py-2 text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto space-x-1.5"
               >
-                {i18n.resolvedLanguage === 'hi' ? <IndiaFlag /> : <USFlag />}
+                {i18n.resolvedLanguage === 'hi' ? <IndiaFlag /> : <IndiaFlag />}
                 <span>{i18n.resolvedLanguage === 'hi' ? 'HI' : 'EN'}</span>
               </button>
               
@@ -170,7 +170,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                       onClick={() => { i18n.changeLanguage('en'); setIsLangDropdownOpen(false); }}
                       className={`w-full flex items-center space-x-3 px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'en' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
                     >
-                      <USFlag />
+                      <IndiaFlag   />
                       <span>English</span>
                     </button>
                     <button

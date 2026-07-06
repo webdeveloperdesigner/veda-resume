@@ -37,7 +37,7 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                     </div>
                     <div>
                       <h2 className="text-2xl font-black text-white tracking-tight">Updates</h2>
-                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.4.6 Release</p>
+                      <p className="text-emerald-500 dark:text-emerald-400 text-xs font-bold tracking-widest uppercase mt-0.5">v1.4.7 Release</p>
                     </div>
                   </div>
                   <button onClick={onClose} className="p-2 text-gray-500 hover:text-white transition-colors bg-white/5 hover:bg-white/10 rounded-full">
@@ -51,8 +51,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Sparkles className="w-4 h-4 text-amber-500 dark:text-amber-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Language Flag UI Enhancement</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Upgraded the language switcher with custom SVG flag graphics for a premium finish.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">i18n Global React Integration</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Wrapped the application in a Suspense boundary to gracefully handle lazy-loaded translations.</p>
                     </div>
                   </div>
                   
@@ -61,8 +61,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <ShieldCheck className="w-4 h-4 text-blue-500 dark:text-blue-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Language Switcher & Detection</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Added a sleek dropdown to toggle languages, backed by persistent local storage detection.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Language Flag UI Enhancement</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Upgraded the language switcher with custom SVG flag graphics for a premium finish.</p>
                     </div>
                   </div>
 
@@ -71,8 +71,8 @@ export function WhatsNewPopup({ isOpen, onClose, onNavigateToChangelog }: WhatsN
                       <Zap className="w-4 h-4 text-purple-500 dark:text-purple-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Hindi Translation: Result Dashboard</h3>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Translated the entire Result Dashboard, including metrics, labels, and smart rewrites, into Hindi.</p>
+                      <h3 className="font-bold text-gray-900 dark:text-gray-200">Language Switcher & Detection</h3>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mt-1.5 leading-relaxed">Added a sleek dropdown to toggle languages, backed by persistent local storage detection.</p>
                     </div>
                   </div>
                 </div>

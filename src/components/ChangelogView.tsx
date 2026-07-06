@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.7',
+    date: 'July 06, 2026',
+    title: 'i18n Global React Integration',
+    description: 'We finalized the core localization architecture by fully integrating the i18next instance into the main React tree and optimizing loading states.',
+    changes: [
+      { type: 'feature', text: 'Wrapped the root <App /> component in a <Suspense> boundary within main.tsx to gracefully handle lazy-loaded translations.' },
+      { type: 'feature', text: 'Updated en.json to capitalize core loading messages for better visual consistency during transitions.' }
+    ]
+  },
+  {
     version: 'v1.4.6',
     date: 'July 06, 2026',
     title: 'Language Flag UI Enhancement',
