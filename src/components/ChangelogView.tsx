@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.8',
+    date: 'July 06, 2026',
+    title: 'Devanagari CSS Typography Audit',
+    description: 'We performed a comprehensive CSS audit specifically tailored for the Devanagari script to ensure Hindi text renders flawlessly without clipping.',
+    changes: [
+      { type: 'feature', text: 'Added targeted html[lang="hi"] rules in index.css to increase line-height globally.' },
+      { type: 'feature', text: 'Injected custom padding for headings and buttons to prevent top and bottom matras from being clipped.' }
+    ]
+  },
+  {
     version: 'v1.4.7',
     date: 'July 06, 2026',
     title: 'i18n Global React Integration',

@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bell, Menu, X, Star, Sun, Moon } from 'lucide-react';
-
 const IndiaFlag = () => (
   <svg viewBox="0 0 64 64" className="w-4 h-4 rounded-sm flex-shrink-0 shadow-sm" xmlns="http://www.w3.org/2000/svg">
     <rect width="64" height="21.33" fill="#FF9933" />
@@ -11,21 +10,6 @@ const IndiaFlag = () => (
     <circle cx="32" cy="32" r="7" fill="#000080" />
     <circle cx="32" cy="32" r="5" fill="#FFFFFF" />
     <circle cx="32" cy="32" r="3" fill="#000080" />
-  </svg>
-);
-
-const USFlag = () => (
-  <svg viewBox="0 0 64 64" className="w-4 h-4 rounded-sm flex-shrink-0 shadow-sm" xmlns="http://www.w3.org/2000/svg">
-    <rect width="64" height="64" fill="#B22234" />
-    <rect y="9.14" width="64" height="9.14" fill="#FFFFFF" />
-    <rect y="27.42" width="64" height="9.14" fill="#FFFFFF" />
-    <rect y="45.71" width="64" height="9.14" fill="#FFFFFF" />
-    <rect width="32" height="32" fill="#3C3B6E" />
-    <circle cx="8" cy="8" r="2" fill="#FFFFFF" />
-    <circle cx="24" cy="8" r="2" fill="#FFFFFF" />
-    <circle cx="16" cy="16" r="2" fill="#FFFFFF" />
-    <circle cx="8" cy="24" r="2" fill="#FFFFFF" />
-    <circle cx="24" cy="24" r="2" fill="#FFFFFF" />
   </svg>
 );
 
@@ -154,7 +138,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                 onClick={() => setIsLangDropdownOpen(!isLangDropdownOpen)}
                 className="px-3 py-2 text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 rounded-full transition-colors flex items-center justify-center pointer-events-auto space-x-1.5"
               >
-                {i18n.resolvedLanguage === 'hi' ? <IndiaFlag /> : <IndiaFlag />}
+                <IndiaFlag />
                 <span>{i18n.resolvedLanguage === 'hi' ? 'HI' : 'EN'}</span>
               </button>
               
@@ -170,7 +154,7 @@ export function Navbar({ currentView, onNavigate, onOpenPopup }: NavbarProps) {
                       onClick={() => { i18n.changeLanguage('en'); setIsLangDropdownOpen(false); }}
                       className={`w-full flex items-center space-x-3 px-4 py-3 text-sm font-semibold transition-colors ${i18n.resolvedLanguage === 'en' ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-500/10' : 'text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5'}`}
                     >
-                      <IndiaFlag   />
+                      <IndiaFlag />
                       <span>English</span>
                     </button>
                     <button
