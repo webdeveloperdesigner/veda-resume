@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.4.9',
+    date: 'July 07, 2026',
+    title: 'Phase 2 Completion: Mobile & UI Audit',
+    description: 'We officially concluded Phase 2 of our massive localization roadmap by passing a comprehensive mobile-responsive UI audit across all Hindi-translated components.',
+    changes: [
+      { type: 'feature', text: 'Verified responsive layout stability and font-scaling across the Hindi Hero, Navbar, and Upload zones.' },
+      { type: 'feature', text: 'Finalized Phase 2 tracking. The platform is now fully multi-language ready on the frontend.' }
+    ]
+  },
+  {
     version: 'v1.4.8',
     date: 'July 06, 2026',
     title: 'Devanagari CSS Typography Audit',

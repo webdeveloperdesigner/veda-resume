@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 
 const versions = [
+  { version: 'v1.4.9', date: 'July 07, 2026', title: 'Phase 2 Completion: Mobile & UI Audit' },
   { version: 'v1.4.8', date: 'July 06, 2026', title: 'Devanagari CSS Typography Audit' },
   { version: 'v1.4.7', date: 'July 06, 2026', title: 'i18n Global React Integration' },
   { version: 'v1.4.6', date: 'July 06, 2026', title: 'Language Flag UI Enhancement' },
