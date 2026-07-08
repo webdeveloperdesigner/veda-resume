@@ -4,6 +4,16 @@ import { ChevronDown } from 'lucide-react';
 
 const releases = [
   {
+    version: 'v1.5.0',
+    date: 'July 08, 2026',
+    title: 'Backend Language Awareness',
+    description: 'We started Phase 3 by giving our AI backend the ability to understand which language you are using on the website.',
+    changes: [
+      { type: 'feature', text: 'Added an X-User-Language header to the resume analysis fetch request.' },
+      { type: 'feature', text: 'This ensures the AI knows whether to write your resume analysis in English or Hindi.' }
+    ]
+  },
+  {
     version: 'v1.4.9',
     date: 'July 07, 2026',
     title: 'Phase 2 Completion: Mobile & UI Audit',

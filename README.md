@@ -678,6 +678,7 @@ DEALINGS IN THE SOFTWARE.
 | **v1.4.7**  | 2026-07-06 | i18n Global React Integration.                                                  |
 | **v1.4.8**  | 2026-07-06 | Devanagari CSS Typography Audit.                                                |
 | **v1.4.9**  | 2026-07-07 | Phase 2 Completion: Mobile & UI Audit.                                          |
+| **v1.5.0**  | 2026-07-08 | Backend Language Awareness.                                                     |
 
 ---
 

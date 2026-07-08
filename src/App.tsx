@@ -55,7 +55,10 @@ function App() {
     try {
       const response = await fetch('/api/review', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'X-User-Language': i18n.resolvedLanguage || 'en'
+        },
         body: JSON.stringify({ resumeText: text, targetRole })
       });
 
